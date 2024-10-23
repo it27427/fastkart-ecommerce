@@ -2,7 +2,7 @@ import React from 'react'
 
 const AdminSidebar = () => {
   return (
-    <aside>Sidebar</aside>
+    <aside>Admin Sidebar</aside>
   )
 }
 

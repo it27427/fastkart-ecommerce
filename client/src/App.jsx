@@ -19,21 +19,40 @@ import Shop from '@/pages/shop/Shop';
 import Checkout from '@/pages/shop/Checkout';
 import Account from '@/pages/shop/Account';
 
-// NOTFOUND
+// ERROR-PAGES
 import NotFound from '@/pages/not-found';
+import UnAuthPage from '@/pages/unauth-page';
+
+// CHECK AUTHORIZE
+import CheckAuth from '@/components/global/CheckAuth';
 
 const App = () => {
+  const isAuthenticated = true;
+  const user = {
+    name: 'Tushar',
+    role: 'admin'
+  };
+
   return (
     <div className='flex flex-col overflow-hidden bg-white'>
       <Routes>
         {/* AUTH-VIEW-ROUTES */}
-        <Route path='/auth' element={<AuthLayout />}>
+        <Route path='/auth' element={
+          <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+            <AuthLayout />
+          </CheckAuth>
+        }>
+          
           <Route path='login' element={<Login />} />
           <Route path='register' element={<Register />} />
         </Route>
 
         {/* ADMIN-VIEW-ROUTES */}
-        <Route path='/admin' element={<AdminLayout />}>
+        <Route path='/admin' element={
+          <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+            <AdminLayout />
+          </CheckAuth>
+        }>
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='products' element={<Products />} />
           <Route path='orders' element={<Orders />} />
@@ -41,15 +60,20 @@ const App = () => {
         </Route>
 
         {/* SHOP-VIEW-ROUTES */}
-        <Route path='/' element={<RootLayout />}>
+        <Route path='/' element={
+          <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+            <RootLayout />
+          </CheckAuth>
+        }>
           <Route path='/' element={<Home />} />
           <Route path='/shop' element={<Shop />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/account' element={<Account />} />
         </Route>
 
-        {/* NOT-FOUND-ROUTES */}
+        {/* ERROR-ROUTES */}
         <Route path='*' element={<NotFound />} />
+        <Route path='/unauth-page' element={<UnAuthPage />} />
       </Routes>
     </div>
   )

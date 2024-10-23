@@ -2,7 +2,7 @@ import React from 'react'
 
 const AdminHeader = () => {
   return (
-    <header>Header</header>
+    <header>Admin Header</header>
   )
 }
 
