@@ -1,18 +1,18 @@
 import { Route, Routes } from 'react-router-dom';
 
-// AUTH LAYOUR AND PAGES
+// AUTH PAGES
 import AuthLayout from '@/components/auth/Layout';
 import Login from '@/pages/auth/login';
 import Register from '@/pages/auth/Register';
 
-// ADMIN LAYOUR AND PAGES
+// ADMIN PAGES
 import AdminLayout from '@/components/admin/Layout';
 import Dashboard from '@/pages/admin/Dashboard';
 import Products from '@/pages/admin/Products';
 import Orders from '@/pages/admin/Orders';
 import Features from '@/pages/admin/Features';
 
-// SHOP LAYOUT AND PAGES
+// SHOP PAGES
 import RootLayout from '@/components/shop/Layout';
 import Home from '@/pages/shop/Home';
 import Shop from '@/pages/shop/Shop';
@@ -23,7 +23,7 @@ import Account from '@/pages/shop/Account';
 import NotFound from '@/pages/not-found';
 import UnAuthPage from '@/pages/unauth-page';
 
-// CHECK AUTHORIZE
+// CHECK-AUTHORIZE
 import CheckAuth from '@/components/global/CheckAuth';
 
 const App = () => {
@@ -34,7 +34,7 @@ const App = () => {
   };
 
   return (
-    <div className='flex flex-col overflow-hidden bg-white'>
+    <div className='flex flex-col overflow-hidden bg-white w-full'>
       <Routes>
         {/* AUTH-VIEW-ROUTES */}
         <Route path='/auth' element={
@@ -42,7 +42,6 @@ const App = () => {
             <AuthLayout />
           </CheckAuth>
         }>
-          
           <Route path='login' element={<Login />} />
           <Route path='register' element={<Register />} />
         </Route>
@@ -65,10 +64,10 @@ const App = () => {
             <RootLayout />
           </CheckAuth>
         }>
-          <Route path='/' element={<Home />} />
-          <Route path='/shop' element={<Shop />} />
-          <Route path='/checkout' element={<Checkout />} />
-          <Route path='/account' element={<Account />} />
+          <Route index element={<Home />} />
+          <Route path='shop' element={<Shop />} />
+          <Route path='checkout' element={<Checkout />} />
+          <Route path='account' element={<Account />} />
         </Route>
 
         {/* ERROR-ROUTES */}
@@ -79,4 +78,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;
