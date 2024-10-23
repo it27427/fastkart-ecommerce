@@ -8,6 +8,12 @@ import Register from '@/pages/auth/Register';
 
 // ADMIN LAYOUR AND PAGES
 import AdminLayout from '@/components/admin/Layout';
+import Dashboard from '@/pages/admin/Dashboard';
+import Products from '@/pages/admin/Products';
+import Orders from '@/pages/admin/Orders';
+import Features from '@/pages/admin/Features';
+
+// CLIENT LAYOUT AND PAGES
 
 const App = () => {
   return (
@@ -18,7 +24,12 @@ const App = () => {
           <Route path='register' element={<Register />} />
         </Route>
 
-        <Route path='/admin' element={<AdminLayout />}></Route>
+        <Route path='/admin' element={<AdminLayout />}>
+          <Route path='dashboard' element={<Dashboard />} />
+          <Route path='products' element={<Products />} />
+          <Route path='orders' element={<Orders />} />
+          <Route path='features' element={<Features />} />
+        </Route>
       </Routes>
     </div>
   )
