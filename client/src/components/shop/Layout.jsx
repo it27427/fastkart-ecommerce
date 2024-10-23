@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import ShopHeader from "./Header";
 import Footer from "./Footer";
 
-const ShopLayout = () => {
+const RootLayout = () => {
   return (
     <div className="flex flex-col bg-white overflow-hidden">
       {/* HEADER */}
@@ -19,4 +19,4 @@ const ShopLayout = () => {
   )
 }
 
-export default ShopLayout;
+export default RootLayout;

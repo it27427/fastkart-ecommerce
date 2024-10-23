@@ -13,7 +13,7 @@ import Orders from '@/pages/admin/Orders';
 import Features from '@/pages/admin/Features';
 
 // SHOP LAYOUT AND PAGES
-import ShopLayout from '@/components/shop/Layout';
+import RootLayout from '@/components/shop/Layout';
 import Home from '@/pages/shop/Home';
 import Shop from '@/pages/shop/Shop';
 import Checkout from '@/pages/shop/Checkout';
@@ -41,7 +41,7 @@ const App = () => {
         </Route>
 
         {/* SHOP-VIEW-ROUTES */}
-        <Route path='/' element={<ShopLayout />}>
+        <Route path='/' element={<RootLayout />}>
           <Route path='/' element={<Home />} />
           <Route path='/shop' element={<Shop />} />
           <Route path='/checkout' element={<Checkout />} />
