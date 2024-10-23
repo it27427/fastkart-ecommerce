@@ -19,17 +19,21 @@ const App = () => {
   return (
     <div className='flex flex-col overflow-hidden bg-white'>
       <Routes>
+        {/* AUTH-VIEW-ROUTES */}
         <Route path='/auth' element={<AuthLayout />}>
           <Route path='login' element={<Login />} />
           <Route path='register' element={<Register />} />
         </Route>
 
+        {/* ADMIN-VIEW-ROUTES */}
         <Route path='/admin' element={<AdminLayout />}>
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='products' element={<Products />} />
           <Route path='orders' element={<Orders />} />
           <Route path='features' element={<Features />} />
         </Route>
+
+        {/* CLIENT-VIEW-ROUTES */}
       </Routes>
     </div>
   )
