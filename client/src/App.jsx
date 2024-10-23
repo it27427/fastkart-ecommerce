@@ -1,4 +1,3 @@
-import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 // AUTH LAYOUR AND PAGES
@@ -13,7 +12,10 @@ import Products from '@/pages/admin/Products';
 import Orders from '@/pages/admin/Orders';
 import Features from '@/pages/admin/Features';
 
-// CLIENT LAYOUT AND PAGES
+// SHOP LAYOUT AND PAGES
+import ShopLayout from '@/components/shop/Layout';
+// NOTFOUND
+import NotFound from '@/pages/not-found';
 
 const App = () => {
   return (
@@ -33,7 +35,11 @@ const App = () => {
           <Route path='features' element={<Features />} />
         </Route>
 
-        {/* CLIENT-VIEW-ROUTES */}
+        {/* SHOP-VIEW-ROUTES */}
+        <Route path='/shop' element={<ShopLayout />}></Route>
+
+        {/* NOT-FOUND-ROUTES */}
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   )
