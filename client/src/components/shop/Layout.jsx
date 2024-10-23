@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import ShopHeader from "./Header";
+import Footer from "./Footer";
 
 const ShopLayout = () => {
   return (
@@ -11,6 +12,9 @@ const ShopLayout = () => {
       <main className="flex flex-col w-full">
         <Outlet />
       </main>
+
+      {/* FOOTER */}
+      <Footer />
     </div>
   )
 }
