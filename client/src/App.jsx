@@ -14,6 +14,11 @@ import Features from '@/pages/admin/Features';
 
 // SHOP LAYOUT AND PAGES
 import ShopLayout from '@/components/shop/Layout';
+import Home from '@/pages/shop/Home';
+import Shop from '@/pages/shop/Shop';
+import Checkout from '@/pages/shop/Checkout';
+import Account from '@/pages/shop/Account';
+
 // NOTFOUND
 import NotFound from '@/pages/not-found';
 
@@ -36,7 +41,12 @@ const App = () => {
         </Route>
 
         {/* SHOP-VIEW-ROUTES */}
-        <Route path='/shop' element={<ShopLayout />}></Route>
+        <Route path='/' element={<ShopLayout />}>
+          <Route path='/' element={<Home />} />
+          <Route path='/shop' element={<Shop />} />
+          <Route path='/checkout' element={<Checkout />} />
+          <Route path='/account' element={<Account />} />
+        </Route>
 
         {/* NOT-FOUND-ROUTES */}
         <Route path='*' element={<NotFound />} />
