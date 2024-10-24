@@ -17,11 +17,11 @@ const CheckAuth = ({ isAuthenticated, user, children }) => {
     }
   }
 
-  if (isAuthenticated && user?.role !== 'admin' && location.pathname.includes('admin')) {
+  if (isAuthenticated && user?.role !== 'admin' && location.pathname.startsWith('/admin')) {
     return <Navigate to='/unauth-page' />
   }
 
-  if (isAuthenticated && user?.role === 'admin' && location.pathname.includes('/')) {
+  if (isAuthenticated && user?.role === 'admin' && location.pathname === '/') {
     return <Navigate to='/admin/dashboard' />
   }
 
