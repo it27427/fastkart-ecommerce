@@ -8,6 +8,8 @@ const cloudinary = require('cloudinary');
 const jsonwebtoken = require('jsonwebtoken');
 const multer = require('multer');
 
+const authRouter = require('@root/routes/auth.routes');
+
 const connectDB = require('./config/db');
 
 const app = express();
@@ -34,6 +36,8 @@ app.use(morgan('dev'));
 
 // Connect to the database
 connectDB();
+
+app.use('/api/auth', authRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello from Express');
