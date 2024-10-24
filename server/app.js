@@ -5,13 +5,13 @@ const cors = require('cors');
 const morgan = require('morgan');
 require('colors');
 require('module-alias/register');
-const cloudinary = require('cloudinary');
-const jsonwebtoken = require('jsonwebtoken');
-const multer = require('multer');
 
+const connectDB = require('@root/config/db');
+
+connectDB();
+
+/** IMPORT-ROUTES **/
 const authRouter = require('@root/routes/auth.routes');
-
-const connectDB = require('./config/db');
 
 const app = express();
 
@@ -35,13 +35,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(morgan('dev'));
 
-// Connect to the database
-connectDB();
-
 app.use('/api/auth', authRouter);
 
 app.get('/', (req, res) => {
-  res.send('Hello from Express');
+  res.send('<h1>Hello from home route</h1>');
 });
 
 module.exports = app;

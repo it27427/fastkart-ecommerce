@@ -1,8 +1,10 @@
-const app = require('./app');
-const PORT = process.env.PORT || 5000;
+const app = require('@root/app');
+const config = require('@root/config/config');
+
+const PORT = config.app.port;
 
 app.listen(PORT, () => {
   console.log(
-    `Server is successfully listening at http://localhost/${PORT}`.bgMagenta
+    `Server is successfully listening at http://localhost:${PORT}`.bgCyan
   );
 });

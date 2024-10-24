@@ -1,14 +1,17 @@
 const mongoose = require('mongoose');
-const colors = require('colors');
+const config = require('./config');
 
-const dbURL = process.env.MONGODB_URI || 'mongodb://localhost:27017/FastKart';
+const dbURL = config.db.url;
 
 const connectDB = async () => {
   try {
     await mongoose.connect(dbURL);
-    console.log(`Database Connected Successfully.`.bgCyan);
+    console.log(`Database Connected Successfully!`.bgMagenta);
   } catch (error) {
-    console.error(error);
+    console.error(
+      `Error connecting to database: ${error.message}`.bgRed.white,
+      error
+    );
     process.exit(1);
   }
 };
