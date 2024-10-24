@@ -1,7 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 import CommonForm from '@/components/common/Form';
 import { RegisterFormControls } from '@/config/index';
+import { registerUser } from '@/store/auth';
 
 const title = 'Create New Account';
 
@@ -14,12 +17,19 @@ const initialState = {
 
 const Register = () => {
   const [formData, setFormData] = useState(initialState);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    dispatch(registerUser(formData)).then((data) => {
+      console.log(data);
+      // navigate('/login');
+    });
   };
 
-  console.log(formData)
+  // console.log(formData)
 
   return (
     <div className='mx-auto w-full space-y-6'>

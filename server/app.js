@@ -23,7 +23,7 @@ app.use(
     allowedHeaders: [
       'Content-Type',
       'Authorization',
-      'Cache Control',
+      'Cache-Control',
       'Expires',
       'Pragma',
     ],
