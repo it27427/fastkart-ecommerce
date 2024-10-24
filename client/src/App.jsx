@@ -36,21 +36,19 @@ const App = () => {
         {/* AUTH-VIEW-ROUTES */}
         <Route path='/login' element={
           <CheckAuth isAuthenticated={isAuthenticated} user={user}>
-            <AuthLayout>
-              <Login />
-            </AuthLayout>
+            <AuthLayout />
           </CheckAuth>
-        } />
-
-        <Route path='auth' element={<Navigate to='/login' />} />
+        }>
+          <Route index element={<Login />} />
+        </Route>
 
         <Route path='/register' element={
           <CheckAuth isAuthenticated={isAuthenticated} user={user}>
-            <AuthLayout>
-              <Register />
-            </AuthLayout>
+            <AuthLayout />
           </CheckAuth>
-        } />
+        }>
+          <Route index element={<Register />} />
+        </Route>
 
         {/* ADMIN-VIEW-ROUTES */}
         <Route path='/admin' element={
