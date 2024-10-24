@@ -7,7 +7,7 @@ const NotFoundEl = () => {
     <main className="min-h-screen w-full flex items-center justify-center bg-red-100">
       <div className="p-4 md:p-8">
         <div className="max-w-96">
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-5">
             <img src={NotFoundThumbnail} alt="notfound-error-thumbnail" className='w-full' />
 
             <Button variant="destructive" asChild>
