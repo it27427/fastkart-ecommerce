@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const morgan = require('morgan');
+require('colors');
 require('module-alias/register');
 const cloudinary = require('cloudinary');
 const jsonwebtoken = require('jsonwebtoken');
