@@ -1,12 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const bcrypt = require('bcryptjs');
-const cloudinary = require('cloudinary');
 const cors = require('cors');
+const morgan = require('morgan');
+require('module-alias/register');
+const cloudinary = require('cloudinary');
 const jsonwebtoken = require('jsonwebtoken');
 const multer = require('multer');
-const morgan = require('morgan');
 
 const connectDB = require('./config/db');
 
