@@ -24,8 +24,7 @@ const Register = () => {
     e.preventDefault();
 
     dispatch(registerUser(formData)).then((data) => {
-      console.log(data);
-      // navigate('/login');
+      if(data?.payload?.success) navigate('/login');
     });
   };
 

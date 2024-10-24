@@ -55,10 +55,10 @@ export default {
       },
       fontFamily: {
         barlow: ['Barlow', 'sans-serif'],
-        playwriteGBS: ['Playwrite GB S', 'serif'],
+        playwriteGBS: ['Playwrite GB S', 'sans-serif'],
         oxanium: ['Oxanium', 'sans-serif'],
-        raleway: ['Raleway', 'serif'],
-        monolisa: ['MonoLisa', 'serif'],
+        raleway: ['Raleway', 'sans-serif'],
+        monolisa: ['MonoLisa', 'sans-serif'],
       },
     },
   },
