@@ -53,6 +53,13 @@ export default {
           5: 'hsl(var(--chart-5))',
         },
       },
+      fontFamily: {
+        barlow: ['Barlow', 'sans-serif'],
+        playwriteGBS: ['Playwrite GB S', 'serif'],
+        oxanium: ['Oxanium', 'sans-serif'],
+        raleway: ['Raleway', 'serif'],
+        monolisa: ['MonoLisa', 'serif'],
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

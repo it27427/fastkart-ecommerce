@@ -27,7 +27,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -53,13 +53,622 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 @layer base {
   * {
     @apply border-border;
   }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-Black.woff2') format('woff2'),
+      url('/public/fonts/barlow/Barlow-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-BoldItalic.woff2') format('woff2'),
+      url('/public/fonts/barlow/Barlow-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-ExtraBoldItalic.woff2')
+        format('woff2'),
+      url('/public/fonts/barlow/Barlow-ExtraBoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-Bold.woff2') format('woff2'),
+      url('/public/fonts/barlow/Barlow-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-BlackItalic.woff2') format('woff2'),
+      url('/public/fonts/barlow/Barlow-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-ExtraBold.woff2') format('woff2'),
+      url('/public/fonts/barlow/Barlow-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-Italic.woff2') format('woff2'),
+      url('/public/fonts/barlow/Barlow-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-Medium.woff2') format('woff2'),
+      url('/public/fonts/barlow/Barlow-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-Light.woff2') format('woff2'),
+      url('/public/fonts/barlow/Barlow-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-ExtraLight.woff2') format('woff2'),
+      url('/public/fonts/barlow/Barlow-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-ExtraLightItalic.woff2')
+        format('woff2'),
+      url('/public/fonts/barlow/Barlow-ExtraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-LightItalic.woff2') format('woff2'),
+      url('/public/fonts/barlow/Barlow-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-MediumItalic.woff2') format('woff2'),
+      url('/public/fonts/barlow/Barlow-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-Regular.woff2') format('woff2'),
+      url('/public/fonts/barlow/Barlow-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-SemiBold.woff2') format('woff2'),
+      url('/public/fonts/barlow/Barlow-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-Thin.woff2') format('woff2'),
+      url('/public/fonts/barlow/Barlow-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-ThinItalic.woff2') format('woff2'),
+      url('/public/fonts/barlow/Barlow-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/public/fonts/barlow/Barlow-SemiBoldItalic.woff2') format('woff2'),
+      url('/public/fonts/barlow/Barlow-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Playwrite GB S';
+    src: url('/public/fonts/PlaywriteGBS/PlaywriteGBS-Italic.woff2')
+        format('woff2'),
+      url('/public/fonts/PlaywriteGBS/PlaywriteGBS-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Playwrite GB S';
+    src: url('/public/fonts/PlaywriteGBS/PlaywriteGBS-ExtraLight.woff2')
+        format('woff2'),
+      url('/public/fonts/PlaywriteGBS/PlaywriteGBS-ExtraLight.woff')
+        format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Playwrite GB S';
+    src: url('/public/fonts/PlaywriteGBS/PlaywriteGBS-LightItalic.woff2')
+        format('woff2'),
+      url('/public/fonts/PlaywriteGBS/PlaywriteGBS-LightItalic.woff')
+        format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Playwrite GB S';
+    src: url('/public/fonts/PlaywriteGBS/PlaywriteGBS-ExtraLightItalic.woff2')
+        format('woff2'),
+      url('/public/fonts/PlaywriteGBS/PlaywriteGBS-ExtraLightItalic.woff')
+        format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Playwrite GB S';
+    src: url('/public/fonts/PlaywriteGBS/PlaywriteGBS-Light.woff2')
+        format('woff2'),
+      url('/public/fonts/PlaywriteGBS/PlaywriteGBS-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Playwrite GB S';
+    src: url('/public/fonts/PlaywriteGBS/PlaywriteGBS-Regular.woff2')
+        format('woff2'),
+      url('/public/fonts/PlaywriteGBS/PlaywriteGBS-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Playwrite GB S';
+    src: url('/public/fonts/PlaywriteGBS/PlaywriteGBS-Thin.woff2')
+        format('woff2'),
+      url('/public/fonts/PlaywriteGBS/PlaywriteGBS-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Playwrite GB S';
+    src: url('/public/fonts/PlaywriteGBS/PlaywriteGBS-ThinItalic.woff2')
+        format('woff2'),
+      url('/public/fonts/PlaywriteGBS/PlaywriteGBS-ThinItalic.woff')
+        format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Oxanium';
+    src: url('/public/fonts/oxanium/Oxanium-ExtraBold.woff2') format('woff2'),
+      url('/public/fonts/oxanium/Oxanium-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Oxanium';
+    src: url('/public/fonts/oxanium/Oxanium-ExtraLight.woff2') format('woff2'),
+      url('/public/fonts/oxanium/Oxanium-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Oxanium';
+    src: url('/public/fonts/oxanium/Oxanium-Bold.woff2') format('woff2'),
+      url('/public/fonts/oxanium/Oxanium-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Oxanium';
+    src: url('/public/fonts/oxanium/Oxanium-Medium.woff2') format('woff2'),
+      url('/public/fonts/oxanium/Oxanium-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Oxanium';
+    src: url('/public/fonts/oxanium/Oxanium-Light.woff2') format('woff2'),
+      url('/public/fonts/oxanium/Oxanium-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Oxanium';
+    src: url('/public/fonts/oxanium/Oxanium-Regular.woff2') format('woff2'),
+      url('/public/fonts/oxanium/Oxanium-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Oxanium';
+    src: url('/public/fonts/oxanium/Oxanium-SemiBold.woff2') format('woff2'),
+      url('/public/fonts/oxanium/Oxanium-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-BlackItalic.woff2') format('woff2'),
+      url('public/fonts/raleway/Raleway-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-Bold.woff2') format('woff2'),
+      url('public/fonts/raleway/Raleway-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-Black.woff2') format('woff2'),
+      url('public/fonts/raleway/Raleway-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-ExtraLightItalic.woff2')
+        format('woff2'),
+      url('public/fonts/raleway/Raleway-ExtraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-BoldItalic.woff2') format('woff2'),
+      url('public/fonts/raleway/Raleway-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-ExtraBold.woff2') format('woff2'),
+      url('public/fonts/raleway/Raleway-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-Italic.woff2') format('woff2'),
+      url('public/fonts/raleway/Raleway-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-ExtraBoldItalic.woff2')
+        format('woff2'),
+      url('public/fonts/raleway/Raleway-ExtraBoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-ExtraLight.woff2') format('woff2'),
+      url('public/fonts/raleway/Raleway-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-MediumItalic.woff2') format('woff2'),
+      url('public/fonts/raleway/Raleway-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-Regular.woff2') format('woff2'),
+      url('public/fonts/raleway/Raleway-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-Medium.woff2') format('woff2'),
+      url('public/fonts/raleway/Raleway-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-Light.woff2') format('woff2'),
+      url('public/fonts/raleway/Raleway-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-LightItalic.woff2') format('woff2'),
+      url('public/fonts/raleway/Raleway-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-SemiBoldItalic.woff2')
+        format('woff2'),
+      url('public/fonts/raleway/Raleway-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-Thin.woff2') format('woff2'),
+      url('public/fonts/raleway/Raleway-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-SemiBold.woff2') format('woff2'),
+      url('public/fonts/raleway/Raleway-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Raleway';
+    src: url('public/fonts/raleway/Raleway-ThinItalic.woff2') format('woff2'),
+      url('public/fonts/raleway/Raleway-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'MonoLisa';
+    src: url('/public/fonts/monolisa/MonoLisa-BlackItalic.woff2')
+        format('woff2'),
+      url('/public/fonts/monolisa/MonoLisa-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'MonoLisaExtraLight';
+    src: url('/public/fonts/monolisa/MonoLisa-ExtraLight.woff2') format('woff2'),
+      url('/public/fonts/monolisa/MonoLisa-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'MonoLisaBold';
+    src: url('/public/fonts/monolisa/MonoLisa-Bold.woff2') format('woff2'),
+      url('/public/fonts/monolisa/MonoLisa-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'MonoLisa';
+    src: url('/public/fonts/monolisa/MonoLisa-BoldItalic.woff2') format('woff2'),
+      url('/public/fonts/monolisa/MonoLisa-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'MonoLisa';
+    src: url('/public/fonts/monolisa/MonoLisa-ExtraLightItalic.woff2')
+        format('woff2'),
+      url('/public/fonts/monolisa/MonoLisa-ExtraLightItalic.woff')
+        format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'MonoLisaBlack';
+    src: url('/public/fonts/monolisa/MonoLisa-Black.woff2') format('woff2'),
+      url('/public/fonts/monolisa/MonoLisa-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'MonoLisaItalic';
+    src: url('/public/fonts/monolisa/MonoLisa-RegularItalic.woff2')
+        format('woff2'),
+      url('/public/fonts/monolisa/MonoLisa-RegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'MonoLisa';
+    src: url('/public/fonts/monolisa/MonoLisa-Regular.woff2') format('woff2'),
+      url('/public/fonts/monolisa/MonoLisa-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'MonoLisaMedium';
+    src: url('/public/fonts/monolisa/MonoLisa-Medium.woff2') format('woff2'),
+      url('/public/fonts/monolisa/MonoLisa-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'MonoLisaLight';
+    src: url('/public/fonts/monolisa/MonoLisa-Light.woff2') format('woff2'),
+      url('/public/fonts/monolisa/MonoLisa-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'MonoLisa';
+    src: url('/public/fonts/monolisa/MonoLisa-LightItalic.woff2')
+        format('woff2'),
+      url('/public/fonts/monolisa/MonoLisa-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'MonoLisa';
+    src: url('/public/fonts/monolisa/MonoLisa-MediumItalic.woff2')
+        format('woff2'),
+      url('/public/fonts/monolisa/MonoLisa-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'MonoLisa';
+    src: url('/public/fonts/monolisa/MonoLisa-ThinItalic.woff2') format('woff2'),
+      url('/public/fonts/monolisa/MonoLisa-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'MonoLisaThin';
+    src: url('/public/fonts/monolisa/MonoLisa-Thin.woff2') format('woff2'),
+      url('/public/fonts/monolisa/MonoLisa-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+  }
+
   body {
     @apply bg-background text-foreground;
   }

@@ -1,5 +1,8 @@
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
+import { Textarea } from '../ui/textarea';
+import { Button } from '../ui/button';
 
 const types = {
   INPUT: 'input',
@@ -7,9 +10,11 @@ const types = {
   TEXTAREA: 'textarea'
 }
 
-const CommonForm = ({ formControls }) => {
+const CommonForm = ({ formControls, formData, setFormData, onSubmit, buttonText }) => {
   const renderInputsByComponentType = (getControlItem) => {
     let element = null;
+
+    const value = formData[getControlItem.name] || '';
 
     switch (getControlItem.componentType) {
       case types.INPUT:
@@ -19,28 +24,52 @@ const CommonForm = ({ formControls }) => {
             name={getControlItem.name}
             id={getControlItem.name}
             placeholder={getControlItem.placeholder}
+            value={value}
+            onChange={(event) => setFormData({
+              ...formData,
+              [getControlItem.name]: event.target.value
+            })}
           />
         )
       break;
     
       case types.SELECT:
         element = (
-          <Input
-            type={getControlItem.type}
-            name={getControlItem.name}
-            id={getControlItem.name}
-            placeholder={getControlItem.placeholder}
-          />
+          <Select onOpenChange={(value) => setFormData({
+            ...formData,
+            [getControlItem.name]: value
+          })} value={value}>
+            <SelectTrigger className='w-full'>
+              <SelectValue placeholder={getControlItem.placeholder}/>
+            </SelectTrigger>
+            <SelectContent>
+              {
+                getControlItem.options &&
+                getControlItem.options.length > 0 ?
+                getControlItem.options.map((option) => (
+                  <SelectItem key={option.id} id={option.id} value={option.id}>
+                    {option.label}
+                  </SelectItem>
+                ))
+                :
+                null
+              }
+            </SelectContent>
+          </Select>
         )
       break;
 
       case types.TEXTAREA:
         element = (
-          <Input
-            type={getControlItem.type}
+          <Textarea
             name={getControlItem.name}
             id={getControlItem.name}
             placeholder={getControlItem.placeholder}
+            value={value}
+            onChange={(event) => setFormData({
+              ...formData,
+              [getControlItem.name]: event.target.value
+            })}
           />
         )
       break;
@@ -52,6 +81,11 @@ const CommonForm = ({ formControls }) => {
             name={getControlItem.name}
             id={getControlItem.name}
             placeholder={getControlItem.placeholder}
+            value={value}
+            onChange={(event) => setFormData({
+              ...formData,
+              [getControlItem.name]: event.target.value
+            })}
           />
         )
       break;
@@ -61,7 +95,7 @@ const CommonForm = ({ formControls }) => {
   };
 
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <div>
         {
           formControls.map((controlItem, i) => (
@@ -76,6 +110,8 @@ const CommonForm = ({ formControls }) => {
           ))
         }
       </div>
+
+      <Button type='submit' className='mt-2 w-full'>{buttonText || 'Submit'}</Button>
     </form>
   )
 }
