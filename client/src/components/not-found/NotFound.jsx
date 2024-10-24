@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-
+import { Button } from "@/components/ui/button";
 import NotFoundThumbnail from '@/assets/images/notfound/not-found.svg';
 
 const NotFoundEl = () => {
@@ -10,9 +10,12 @@ const NotFoundEl = () => {
           <div className="flex flex-col gap-4">
             <img src={NotFoundThumbnail} alt="notfound-error-thumbnail" className='w-full' />
 
-            <Link to='/' className='bg-neutral-600 text-white px-5 py-3 text-center font-bold'>
-              Back To Home
-            </Link>
+            <Button variant="destructive" asChild>
+              <Link to='/' className='flex items-center gap-0'>
+                <i className="icofont-arrow-left text-lg mt-1"></i>
+                <span>Back To Home</span>
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
