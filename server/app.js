@@ -30,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
+app.use(morgan('dev'));
 
 // Connect to the database
 connectDB();
