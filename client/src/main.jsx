@@ -8,7 +8,8 @@ import store from '@/store/store.js';
 
 // Import styles
 import 'swiper/css';
-import './assets/css/index.css';
+import '@/assets/css/icofont.min.css';
+import '@/assets/css/index.css';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
