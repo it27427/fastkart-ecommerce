@@ -1,11 +1,11 @@
 /** REGISTER-CONTROLLER **/
-const registerController = (req, res) => {};
+const registerController = async (req, res) => {};
 
 /** LOGIN-CONTROLLER **/
-const loginController = (req, res) => {};
+const loginController = async (req, res) => {};
 
 /** LOGOUT-CONTROLLER **/
-const logoutController = (req, res) => {};
+const logoutController = async (req, res) => {};
 
 /** AUTH-MIDDLEWARE **/
-const authMiddleware = (req, res) => {};
+const authMiddleware = async (req, res) => {};
