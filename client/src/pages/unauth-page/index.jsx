@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import Thumbnail from '@/assets/images/unauthorize/unauthorize.svg';
+import UnauthorizeThumbnail from '@/assets/images/unauthorize/unauthorize.svg';
 
 const UnAuthPage = () => {
   return (
@@ -8,7 +8,7 @@ const UnAuthPage = () => {
       <div className="p-4 md:p-8">
         <div className="max-w-96">
           <div className="flex flex-col gap-4">
-            <img src={Thumbnail} alt="error-unauthorize-thumbnail" className='w-full' />
+            <img src={UnauthorizeThumbnail} alt="unauthorize-error-thumbnail" className='w-full' />
 
             <Link to='/' className='bg-yellow-600 text-white px-5 py-3 text-center font-bold'>
               Back To Home
