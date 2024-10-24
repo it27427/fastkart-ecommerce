@@ -15,9 +15,11 @@ const initialState = {
 const Register = () => {
   const [formData, setFormData] = useState(initialState);
 
-  const onSubmit = () => {
-
+  const onSubmit = (e) => {
+    e.preventDefault();
   };
+
+  console.log(formData)
 
   return (
     <div className='mx-auto w-full space-y-6'>

@@ -5,6 +5,6 @@ const PORT = config.app.port;
 
 app.listen(PORT, () => {
   console.log(
-    `Server is successfully listening at http://localhost:${PORT}`.bgCyan
+    `Server is successfully listening at http://localhost:${PORT}`.bgBlue
   );
 });

@@ -8,10 +8,7 @@ const connectDB = async () => {
     await mongoose.connect(dbURL);
     console.log(`Database Connected Successfully!`.bgMagenta);
   } catch (error) {
-    console.error(
-      `Error connecting to database: ${error.message}`.bgRed.white,
-      error
-    );
+    console.error(`Error connecting to database: ${error.message}`.bgRed.white);
     process.exit(1);
   }
 };
