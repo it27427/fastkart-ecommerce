@@ -9,11 +9,15 @@ const CheckAuth = ({ isAuthenticated, user, children }) => {
     )
   }
   
-  if (isAuthenticated && user?.role === 'admin' && (location.pathname === '/admin' || location.pathname === '/admin/')) {
-    return <Navigate to='/admin/dashboard' />
+  if (isAuthenticated && (location.pathname.includes('/login') || location.pathname.includes('/register'))) {
+    if(user?.role === 'admin') {
+      return <Navigate to='/admin/dashboard' />
+    } else {
+      return <Navigate to='/' />
+    }
   }
 
-  if (isAuthenticated && user?.role !== 'admin' && location.pathname.startsWith('/admin')) {
+  if (isAuthenticated && user?.role !== 'admin' && location.pathname.includes('admin')) {
     return <Navigate to='/unauth-page' />
   }
 

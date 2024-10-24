@@ -27,8 +27,11 @@ import UnAuthPage from '@/pages/unauth-page';
 import CheckAuth from '@/components/global/CheckAuth';
 
 const App = () => {
-  const isAuthenticated = false;
-  const user = null;
+  const isAuthenticated = true;
+  const user = {
+    name: 'Tushar',
+    role: 'admin'
+  };
 
   return (
     <div className='flex flex-col overflow-hidden bg-white w-full'>
@@ -42,7 +45,7 @@ const App = () => {
           </CheckAuth>
         } />
 
-        <Route path="/auth" element={<Navigate to="/login" />} />
+        <Route path='auth' element={<Navigate to='/login' />} />
 
         <Route path='/register' element={
           <CheckAuth isAuthenticated={isAuthenticated} user={user}>
@@ -62,6 +65,7 @@ const App = () => {
           <Route path='products' element={<Products />} />
           <Route path='orders' element={<Orders />} />
           <Route path='features' element={<Features />} />
+          <Route path='/admin' element={<Navigate to='/admin/dashboard' />} />
         </Route>
 
         {/* SHOP-VIEW-ROUTES */}
