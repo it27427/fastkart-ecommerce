@@ -27,11 +27,8 @@ import UnAuthPage from '@/pages/unauth-page';
 import CheckAuth from '@/components/global/CheckAuth';
 
 const App = () => {
-  const isAuthenticated = true;
-  const user = {
-    name: 'Tushar',
-    role: 'user'
-  };
+  const isAuthenticated = false;
+  const user = null;
 
   return (
     <div className='flex flex-col overflow-hidden bg-white w-full'>
@@ -82,7 +79,7 @@ const App = () => {
 
         {/* ERROR-ROUTES */}
         <Route path='*' element={<NotFound />} />
-        <Route path='/unauth-page' element={<UnAuthPage />} />
+        <Route path='/unauthorize' element={<UnAuthPage />} />
       </Routes>
     </div>
   )
