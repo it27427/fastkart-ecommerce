@@ -17,7 +17,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: 'http://localhost:5173/',
+    origin: 'http://localhost:3000/',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: [
       'Content-Type',
@@ -29,7 +29,7 @@ app.use(
     credentials: true,
   })
 );
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
