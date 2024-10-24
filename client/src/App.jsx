@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 // AUTH PAGES
 import AuthLayout from '@/components/auth/Layout';
@@ -27,24 +27,30 @@ import UnAuthPage from '@/pages/unauth-page';
 import CheckAuth from '@/components/global/CheckAuth';
 
 const App = () => {
-  const isAuthenticated = true;
-  const user = {
-    name: 'Tushar',
-    role: 'admin'
-  };
+  const isAuthenticated = false;
+  const user = null;
 
   return (
     <div className='flex flex-col overflow-hidden bg-white w-full'>
       <Routes>
         {/* AUTH-VIEW-ROUTES */}
-        <Route path='/auth' element={
+        <Route path='/login' element={
           <CheckAuth isAuthenticated={isAuthenticated} user={user}>
-            <AuthLayout />
+            <AuthLayout>
+              <Login />
+            </AuthLayout>
           </CheckAuth>
-        }>
-          <Route path='login' element={<Login />} />
-          <Route path='register' element={<Register />} />
-        </Route>
+        } />
+
+        <Route path="/auth" element={<Navigate to="/login" />} />
+
+        <Route path='/register' element={
+          <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+            <AuthLayout>
+              <Register />
+            </AuthLayout>
+          </CheckAuth>
+        } />
 
         {/* ADMIN-VIEW-ROUTES */}
         <Route path='/admin' element={
