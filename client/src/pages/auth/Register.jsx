@@ -9,7 +9,7 @@ const Register = () => {
   return (
     <div className='mx-auto w-full space-y-6'>
       <div className="text-center">
-        <h2 className='text-3xl font-bold tracking-tight text-foreground'>
+        <h2 className='text-4xl font-oxanium font-bold tracking-tight text-foreground'>
           {title}
         </h2>
       </div>
