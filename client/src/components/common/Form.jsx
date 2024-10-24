@@ -95,8 +95,8 @@ const CommonForm = ({ formControls, formData, setFormData, onSubmit, buttonText 
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <div>
+    <form onSubmit={onSubmit} className='space-y-6'>
+      <div className='space-y-6'>
         {
           formControls.map((controlItem, i) => (
             // const { label, type, name, placeholder, componentType } = controlItem;

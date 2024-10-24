@@ -28,3 +28,20 @@ export const RegisterFormControls = [
     componentType: 'input',
   },
 ];
+
+export const LoginFormControls = [
+  {
+    label: 'Email Address',
+    type: 'email',
+    name: 'email',
+    placeholder: 'Enter your e-mail address',
+    componentType: 'input',
+  },
+  {
+    label: 'Password',
+    type: 'password',
+    name: 'password',
+    placeholder: 'Enter your password',
+    componentType: 'input',
+  },
+];
