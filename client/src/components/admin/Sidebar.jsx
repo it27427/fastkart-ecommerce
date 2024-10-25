@@ -45,7 +45,7 @@ const MenuItems = () => {
       {
         AdminSidebarMenuItems.map((menuItem) => (
           <li
-            className='flex items-center gap-2 px-3 py-2 rounded cursor-pointer'
+            className='flex items-center gap-2 px-3 py-2 rounded cursor-pointer text-muted-foreground hover:bg-muted hover:text-foreground font-medium font-oxanium'
             role='button'
             key={menuItem.id}
             onClick={() => navigate(menuItem.path)
