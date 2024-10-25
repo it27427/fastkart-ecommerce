@@ -95,8 +95,12 @@ const loginUser = async (req, res) => {
 };
 
 /** LOGOUT-CONTROLLER **/
-const logoutUser = async (req, res) => {
+const logout = (req, res) => {
   try {
+    const clearCookie = res.clearCookie('token').json({
+      success: true,
+      message: 'Logged out successfully!',
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({
@@ -107,13 +111,23 @@ const logoutUser = async (req, res) => {
 };
 
 /** AUTH-MIDDLEWARE **/
-const authMiddleware = async (req, res) => {
+const authMiddleware = async (req, res, next) => {
+  const token = req.cookies.token;
+  if (!token)
+    return res.json({
+      success: false,
+      message: 'Unauthorized User!',
+    });
+
   try {
+    const decoded = jwt.verify(token, secretKey);
+    req.user = decoded;
+    next();
   } catch (error) {
     console.error(error);
-    res.status(500).json({
+    res.status(401).json({
       success: false,
-      message: 'Some error occured',
+      message: 'Unauthorized User!',
     });
   }
 };
@@ -121,4 +135,5 @@ const authMiddleware = async (req, res) => {
 module.exports = {
   registerUser,
   loginUser,
+  logout,
 };
