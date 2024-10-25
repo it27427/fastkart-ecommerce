@@ -1,31 +1,37 @@
+const types = {
+  INPUT: 'input',
+  SELECT: 'select',
+  TEXTAREA: 'textarea',
+};
+
 export const RegisterFormControls = [
   {
     label: 'User Name',
     type: 'text',
     name: 'userName',
     placeholder: 'Enter your user name',
-    componentType: 'input',
+    componentType: types.INPUT,
   },
   {
     label: 'Email Address',
     type: 'email',
     name: 'email',
     placeholder: 'Enter your e-mail address',
-    componentType: 'input',
+    componentType: types.INPUT,
   },
   {
     label: 'Phone Number',
     type: 'tel',
     name: 'phone',
     placeholder: 'Enter your phone number',
-    componentType: 'input',
+    componentType: types.INPUT,
   },
   {
     label: 'Password',
     type: 'password',
     name: 'password',
     placeholder: 'Enter your password',
-    componentType: 'input',
+    componentType: types.INPUT,
   },
 ];
 
@@ -35,14 +41,14 @@ export const LoginFormControls = [
     type: 'email',
     name: 'email',
     placeholder: 'Enter your e-mail address',
-    componentType: 'input',
+    componentType: types.INPUT,
   },
   {
     label: 'Password',
     type: 'password',
     name: 'password',
     placeholder: 'Enter your password',
-    componentType: 'input',
+    componentType: types.INPUT,
   },
 ];
 
@@ -50,20 +56,20 @@ export const addProductFormElements = [
   {
     label: 'Title',
     name: 'title',
-    componentType: 'input',
+    componentType: types.INPUT,
     type: 'text',
     placeholder: 'Enter product title',
   },
   {
     label: 'Description',
     name: 'description',
-    componentType: 'textarea',
+    componentType: types.TEXTAREA,
     placeholder: 'Enter product description',
   },
   {
     label: 'Category',
     name: 'category',
-    componentType: 'select',
+    componentType: types.SELECT,
     options: [
       {
         id: 'men',
@@ -90,7 +96,7 @@ export const addProductFormElements = [
   {
     label: 'Brand',
     name: 'brand',
-    componentType: 'select',
+    componentType: types.SELECT,
     options: [
       {
         id: 'nike',
@@ -121,27 +127,27 @@ export const addProductFormElements = [
   {
     label: 'Price',
     name: 'price',
-    componentType: 'input',
+    componentType: types.INPUT,
     type: 'number',
     placeholder: 'Enter product price',
   },
   {
     label: 'Sale Price',
     name: 'salePrice',
-    componentType: 'input',
+    componentType: types.INPUT,
     type: 'number',
     placeholder: 'Enter sale price (optional)',
   },
   {
     label: 'Total Stock',
     name: 'totalStock',
-    componentType: 'input',
+    componentType: types.INPUT,
     type: 'number',
     placeholder: 'Enter total stock',
   },
 ];
 
-export const shoppingViewHeaderMenuItems = [
+export const shopHeaderMenuItems = [
   {
     id: 'home',
     label: 'Home',
@@ -275,35 +281,35 @@ export const addressFormControls = [
   {
     label: 'Address',
     name: 'address',
-    componentType: 'input',
+    componentType: types.INPUT,
     type: 'text',
     placeholder: 'Enter your address',
   },
   {
     label: 'City',
     name: 'city',
-    componentType: 'input',
+    componentType: types.INPUT,
     type: 'text',
     placeholder: 'Enter your city',
   },
   {
     label: 'Pincode',
     name: 'pincode',
-    componentType: 'input',
+    componentType: types.INPUT,
     type: 'number',
     placeholder: 'Enter your pincode',
   },
   {
     label: 'Phone',
     name: 'phone',
-    componentType: 'input',
+    componentType: types.INPUT,
     type: 'tel',
     placeholder: 'Enter your phone number',
   },
   {
     label: 'Notes',
     name: 'notes',
-    componentType: 'textarea',
+    componentType: types.TEXTAREA,
     placeholder: 'Enter any additional notes',
   },
 ];
