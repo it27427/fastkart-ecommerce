@@ -26,6 +26,8 @@ const initialFormData = {
 const Products = () => {
   const [openCreateProducts, setOpenCreateProducts] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
+  const [imageFile, setImageFile] = useState(null);
+  const [uploadedImgUrl, setUploadedImgUrl] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -58,8 +60,15 @@ const Products = () => {
             <SheetDescription className='hidden'></SheetDescription>
           </SheetHeader>
 
-          <ProductImageUpload />
+          {/* IMAGE-UPLOADER */}
+          <ProductImageUpload
+            file={imageFile}
+            setFile={setImageFile}
+            uploadedImgUrl={uploadedImgUrl}
+            setUploadedImgUrl={setUploadedImgUrl}
+          />
 
+          {/* PRODUCT-FORM-CONFIGURATION */}
           <div className='py-6'>
             <CommonForm
               onSubmit={onSubmit}
