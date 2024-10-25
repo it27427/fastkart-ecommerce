@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 const AdminHeader = () => {
   return (
-    <header className='flex items-center justify-between px-4 py-3 bg-background border-b'>
+    <header className='flex items-center justify-between px-4 py-3 bg-background border-b h-16'>
       <Button className='bg-primarybg hover:bg-green-500 flex lg:hidden'>
         <AlignJustify />
         <span className='sr-only'>Toggle Menu</span>
