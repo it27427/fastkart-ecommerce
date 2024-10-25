@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/sheet';
 import CommonForm from '@/components/common/Form';
 import { addProductFormElements } from '@/config';
+import ProductImageUpload from '@/components/admin/ImageUpload';
 
 const initialFormData = {
   image: null,
@@ -56,6 +57,8 @@ const Products = () => {
             <SheetTitle className='-mt-3'>Add New Product</SheetTitle>
             <SheetDescription className='hidden'></SheetDescription>
           </SheetHeader>
+
+          <ProductImageUpload />
 
           <div className='py-6'>
             <CommonForm
