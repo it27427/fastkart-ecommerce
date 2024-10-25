@@ -1,7 +1,11 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import CommonForm from '@/components/common/Form';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '@/store/auth';
 import { LoginFormControls } from '@/config/index';
+import { useToast } from '@/hooks/use-toast';
+
+import CommonForm from '@/components/common/Form';
 
 const title = 'Login To Your Account';
 
@@ -12,9 +16,26 @@ const initialState = {
 
 const Login = () => {
   const [formData, setFormData] = useState(initialState);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { toast } = useToast();
 
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
 
+    dispatch(loginUser(formData)).then((data) => {
+      if (data?.payload?.success) {
+        toast({
+          title: data?.payload?.message,
+        });
+        // navigate('/');
+      } else {
+        toast({
+          variant: 'destructive',
+          title: data?.payload?.message,
+        });
+      }
+    });
   };
 
   return (
