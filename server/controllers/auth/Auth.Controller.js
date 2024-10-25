@@ -3,9 +3,10 @@ const jwt = require('jsonwebtoken');
 const multer = require('multer');
 
 const User = require('@root/models/user.model');
+const config = require('@root/config/config');
 
 /** REGISTER-CONTROLLER **/
-const registerController = async (req, res) => {
+const registerUser = async (req, res) => {
   const { userName, email, phone, password } = req.body;
 
   try {
@@ -40,10 +41,50 @@ const registerController = async (req, res) => {
 };
 
 /** LOGIN-CONTROLLER **/
-const loginController = async (req, res) => {
+const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   try {
+    const checkUser = await User.findOne({ email });
+
+    if (!checkUser)
+      return res.json({
+        success: false,
+        message: "User doesn't exists! Please register first.",
+      });
+
+    const checkPasswordMatch = await bcrypt.compare(
+      password,
+      checkUser.password
+    );
+
+    if (!checkPasswordMatch)
+      return res.json({
+        success: false,
+        message: 'Invalid password! Please try again.',
+      });
+
+    const secretKey = config.token.key;
+    const token = jwt.sign(
+      {
+        id: checkUser._id,
+        role: checkUser.role,
+        email: checkUser.email,
+        password: checkUser.password,
+      },
+      secretKey,
+      { expiresIn: '30m' }
+    );
+
+    res.cookie('token', token, { httpOnly: true, secure: false }).json({
+      success: true,
+      message: 'Logged in successfully!',
+      user: {
+        email: checkUser.email,
+        role: checkUser.role,
+        id: checkUser._id,
+      },
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({
@@ -54,7 +95,7 @@ const loginController = async (req, res) => {
 };
 
 /** LOGOUT-CONTROLLER **/
-const logoutController = async (req, res) => {
+const logoutUser = async (req, res) => {
   try {
   } catch (error) {
     console.error(error);
@@ -78,5 +119,6 @@ const authMiddleware = async (req, res) => {
 };
 
 module.exports = {
-  registerController,
+  registerUser,
+  loginUser,
 };
