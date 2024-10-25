@@ -14,8 +14,7 @@ const registerController = async (req, res) => {
     if (checkUser)
       return res.json({
         success: false,
-        message:
-          'User Already Exists With This E-mail Address! Please Try With Another Unique E-mail.',
+        message: 'User already exists! Please try with another unique e-mail.',
       });
 
     const hashedPassword = await bcrypt.hash(password, 12);
