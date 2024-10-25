@@ -127,6 +127,98 @@ export const addProductFormElements = [
     placeholder: 'Select Brand',
   },
   {
+    label: 'Size',
+    name: 'size',
+    componentType: types.SELECT,
+    options: [
+      {
+        label: 'XS',
+        value: 'xs',
+      },
+      {
+        label: 'S',
+        value: 's',
+      },
+      {
+        label: 'M',
+        value: 'm',
+      },
+      {
+        label: 'L',
+        value: 'l',
+      },
+      {
+        label: 'XL',
+        value: 'xl',
+      },
+      {
+        label: 'XXL',
+        value: 'xxl',
+      },
+    ],
+    placeholder: 'Select Size',
+  },
+  {
+    label: 'Color',
+    name: 'color',
+    componentType: types.SELECT,
+    options: [
+      {
+        label: 'Red',
+        value: 'red',
+      },
+      {
+        label: 'Blue',
+        value: 'blue',
+      },
+      {
+        label: 'Green',
+        value: 'green',
+      },
+      {
+        label: 'Yellow',
+        value: 'yellow',
+      },
+      {
+        label: 'Orange',
+        value: 'orange',
+      },
+      {
+        label: 'Purple',
+        value: 'purple',
+      },
+      {
+        label: 'Pink',
+        value: 'pink',
+      },
+      {
+        label: 'Black',
+        value: 'black',
+      },
+      {
+        label: 'White',
+        value: 'white',
+      },
+      {
+        label: 'Gray',
+        value: 'gray',
+      },
+      {
+        label: 'Brown',
+        value: 'brown',
+      },
+      {
+        label: 'Cyan',
+        value: 'cyan',
+      },
+      {
+        label: 'Magenta',
+        value: 'magenta',
+      },
+    ],
+    placeholder: 'Select Color',
+  },
+  {
     label: 'Price',
     name: 'price',
     componentType: types.INPUT,
