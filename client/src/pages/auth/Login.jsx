@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import CommonForm from '@/components/common/Form';
 import { LoginFormControls } from '@/config/index';
 
-const title = 'Sign In To Your Account';
+const title = 'Login To Your Account';
 
 const initialState = {
   email: '',

@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import CommonForm from '@/components/common/Form';
 import { RegisterFormControls } from '@/config/index';
 import { registerUser } from '@/store/auth';
+import { useToast } from '@/hooks/use-toast';
 
 const title = 'Create New Account';
 
@@ -19,16 +20,21 @@ const Register = () => {
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { toast } = useToast();
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     dispatch(registerUser(formData)).then((data) => {
-      if(data?.payload?.success) navigate('/login');
+      if(data?.payload?.success) {
+        toast({
+          variant: 'success',
+          title: data?.payload?.message,
+        });
+        navigate('/login');
+      }
     });
   };
-
-  // console.log(formData)
 
   return (
     <div className='mx-auto w-full space-y-6'>
