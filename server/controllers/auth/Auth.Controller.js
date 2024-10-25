@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
 
-const User = require('@root/models/User.Model');
+const User = require('@root/models/user.model');
 
 /** REGISTER-CONTROLLER **/
 const registerController = async (req, res) => {
