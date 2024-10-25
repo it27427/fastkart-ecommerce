@@ -2,10 +2,10 @@ import React from 'react'
 import { AlignJustify, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const AdminHeader = () => {
+const AdminHeader = ({ setOpen }) => {
   return (
     <header className='flex items-center justify-between px-4 py-3 bg-background border-b h-16'>
-      <Button className='bg-primarybg hover:bg-green-500 flex lg:hidden'>
+      <Button onClick={() => setOpen(true)} className='bg-primarybg hover:bg-green-500 flex lg:hidden'>
         <AlignJustify />
         <span className='sr-only'>Toggle Menu</span>
       </Button>

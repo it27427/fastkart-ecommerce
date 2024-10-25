@@ -661,4 +661,11 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  button:focus {
+    --tw-ring-offset-shadow: none;
+    --tw-ring-shadow: none;
+    box-shadow: none !important;
+    outline: none !important;
+  }
 }
