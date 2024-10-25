@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { Skeleton } from "@/components/ui/skeleton"
 
 // AUTH PAGES
 import AuthLayout from '@/components/auth/Layout';
@@ -38,7 +39,7 @@ const App = () => {
     dispatch(checkAuth());
   }, [dispatch])
 
-  if(isLoading) return <Loader />
+  if(isLoading) return <Skeleton className="w-[600px] h-[600px]" />
 
   return (
     <div className='flex flex-col overflow-hidden bg-white w-full'>
