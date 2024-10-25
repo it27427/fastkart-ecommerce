@@ -63,9 +63,9 @@ const CommonForm = ({
             </SelectTrigger>
             <SelectContent>
               {getControlItem.options && getControlItem.options.length > 0
-                ? getControlItem.options.map((option) => (
+                ? getControlItem.options.map((option, index) => (
                     <SelectItem
-                      key={option.id}
+                      key={option.id || index}
                       id={option.id}
                       value={option.id}
                     >

@@ -62,8 +62,8 @@ const Products = () => {
 
           {/* IMAGE-UPLOADER */}
           <ProductImageUpload
-            file={imageFile}
-            setFile={setImageFile}
+            imageFile={imageFile}
+            setImageFile={setImageFile}
             uploadedImgUrl={uploadedImgUrl}
             setUploadedImgUrl={setUploadedImgUrl}
           />
