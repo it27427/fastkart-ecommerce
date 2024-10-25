@@ -92,6 +92,7 @@ export const addProductFormElements = [
         label: 'Footwear',
       },
     ],
+    placeholder: 'Select Category',
   },
   {
     label: 'Brand',
@@ -123,6 +124,7 @@ export const addProductFormElements = [
         label: 'H&M',
       },
     ],
+    placeholder: 'Select Brand',
   },
   {
     label: 'Price',

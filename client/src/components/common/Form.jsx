@@ -50,10 +50,10 @@ const CommonForm = ({
       case types.SELECT:
         element = (
           <Select
-            onOpenChange={(value) =>
+            onValueChange={(selectedValue) =>
               setFormData({
                 ...formData,
-                [getControlItem.name]: value,
+                [getControlItem.name]: selectedValue,
               })
             }
             value={value}
@@ -121,8 +121,6 @@ const CommonForm = ({
     <form onSubmit={onSubmit} className='space-y-6'>
       <div className='space-y-6'>
         {formControls.map((controlItem, i) => (
-          // const { label, type, name, placeholder, componentType } = controlItem;
-
           <div key={i} className='grid w-full gap-1.5'>
             <Label className='mb-1'>{controlItem.label}</Label>
             {renderInputsByComponentType(controlItem)}
