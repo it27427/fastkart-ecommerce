@@ -689,4 +689,12 @@
   input[type='search']::-webkit-search-results-decoration {
     display: none;
   }
+
+  input {
+    caret-color: #222222;
+  }
+
+  input[type='radio'] {
+    accent-color: #0da487;
+  }
 }
