@@ -1,18 +1,73 @@
-import React from 'react';
+import { useState } from 'react';
 import { Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+} from '@/components/ui/sheet';
+import CommonForm from '@/components/common/Form';
+import { addProductFormElements } from '@/config';
+
+const initialFormData = {
+  image: null,
+  title: '',
+  description: '',
+  category: '',
+  brand: '',
+  price: '',
+  salePrice: '',
+  totalStock: '',
+};
 
 const Products = () => {
+  const [openCreateProducts, setOpenCreateProducts] = useState(false);
+  const [formData, setFormData] = useState(initialFormData);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       <div className='mb-5 flex justify-end w-full'>
-        <Button className='gap-1'>
+        <Button onClick={() => setOpenCreateProducts(true)} className='gap-1'>
           <Plus />
           <span>Add New Product</span>
         </Button>
       </div>
 
-      <div className='grid gap-4 grid-cols-2'></div>
+      <div className='grid gap-4 md:grid-cols-3 lg:grid-cols-4'></div>
+
+      <Sheet
+        open={openCreateProducts}
+        onOpenChange={() => {
+          setOpenCreateProducts(false);
+        }}
+      >
+        <SheetContent
+          side='right'
+          className='overflow-auto'
+          aria-describedby='admin-sidebar-description'
+        >
+          <SheetHeader>
+            <SheetTitle className='-mt-3'>Add New Product</SheetTitle>
+            <SheetDescription className='hidden'></SheetDescription>
+          </SheetHeader>
+
+          <div className='py-6'>
+            <CommonForm
+              onSubmit={onSubmit}
+              formData={formData}
+              setFormData={setFormData}
+              buttonText='Add'
+              formControls={addProductFormElements}
+            />
+          </div>
+        </SheetContent>
+      </Sheet>
     </>
   );
 };
