@@ -1,12 +1,14 @@
 const config = require('@root/config/config');
+const jwt = require('jsonwebtoken');
 
 const authMiddleware = async (req, res, next) => {
   const token = req.cookies.token;
-  if (!token)
-    return res.json({
+  if (!token) {
+    return res.status(401).json({
       success: false,
       message: 'Unauthorized User!',
     });
+  }
 
   try {
     const secretKey = config.token.key;
@@ -21,3 +23,5 @@ const authMiddleware = async (req, res, next) => {
     });
   }
 };
+
+module.exports = authMiddleware;

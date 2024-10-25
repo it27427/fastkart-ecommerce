@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 // AUTH PAGES
 import AuthLayout from '@/components/auth/Layout';
@@ -25,10 +27,18 @@ import UnAuthPage from '@/pages/unauth-page';
 
 // CHECK-AUTHORIZE
 import CheckAuth from '@/components/global/CheckAuth';
-import { useSelector } from 'react-redux';
+import { checkAuth } from '@/store/auth';
+import Loader from '@/components/global/Loader';
 
 const App = () => {
-  const { isAuthenticated, user } = useSelector((state) => state.auth);
+  const { isAuthenticated, user, isLoading } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, [dispatch])
+
+  if(isLoading) return <Loader />
 
   return (
     <div className='flex flex-col overflow-hidden bg-white w-full'>

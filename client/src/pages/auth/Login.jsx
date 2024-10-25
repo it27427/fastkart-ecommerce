@@ -17,7 +17,6 @@ const initialState = {
 const Login = () => {
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { toast } = useToast();
 
   const onSubmit = (e) => {
@@ -28,7 +27,6 @@ const Login = () => {
         toast({
           title: data?.payload?.message,
         });
-        // navigate('/');
       } else {
         toast({
           variant: 'destructive',
