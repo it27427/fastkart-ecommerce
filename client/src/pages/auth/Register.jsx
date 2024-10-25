@@ -28,10 +28,14 @@ const Register = () => {
     dispatch(registerUser(formData)).then((data) => {
       if(data?.payload?.success) {
         toast({
-          variant: 'success',
           title: data?.payload?.message,
         });
         navigate('/login');
+      } else {
+        toast({
+          variant: 'destructive',
+          title: data?.payload?.message,
+        });
       }
     });
   };
