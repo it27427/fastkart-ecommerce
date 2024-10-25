@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Skeleton } from "@/components/ui/skeleton"
+import { Skeleton } from '@/components/ui/skeleton';
 
 // AUTH PAGES
 import AuthLayout from '@/components/auth/Layout';
@@ -29,44 +29,54 @@ import UnAuthPage from '@/pages/unauth-page';
 // CHECK-AUTHORIZE
 import CheckAuth from '@/components/global/CheckAuth';
 import { checkAuth } from '@/store/auth';
-import Loader from '@/components/global/Loader';
 
 const App = () => {
-  const { isAuthenticated, user, isLoading } = useSelector((state) => state.auth);
+  const { isAuthenticated, user, isLoading } = useSelector(
+    (state) => state.auth
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(checkAuth());
-  }, [dispatch])
+  }, [dispatch]);
 
-  if(isLoading) return <Skeleton className="w-[600px] h-[600px]" />
+  if (isLoading) return <Skeleton className='w-[600px] h-[600px]' />;
 
   return (
     <div className='flex flex-col overflow-hidden bg-white w-full'>
       <Routes>
         {/* AUTH-VIEW-ROUTES */}
-        <Route path='/login' element={
-          <CheckAuth isAuthenticated={isAuthenticated} user={user}>
-            <AuthLayout />
-          </CheckAuth>
-        }>
+        <Route
+          path='/login'
+          element={
+            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+              <AuthLayout />
+            </CheckAuth>
+          }
+        >
           <Route index element={<Login />} />
         </Route>
 
-        <Route path='/register' element={
-          <CheckAuth isAuthenticated={isAuthenticated} user={user}>
-            <AuthLayout />
-          </CheckAuth>
-        }>
+        <Route
+          path='/register'
+          element={
+            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+              <AuthLayout />
+            </CheckAuth>
+          }
+        >
           <Route index element={<Register />} />
         </Route>
 
         {/* ADMIN-VIEW-ROUTES */}
-        <Route path='/admin' element={
-          <CheckAuth isAuthenticated={isAuthenticated} user={user}>
-            <AdminLayout />
-          </CheckAuth>
-        }>
+        <Route
+          path='/admin'
+          element={
+            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+              <AdminLayout />
+            </CheckAuth>
+          }
+        >
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='products' element={<Products />} />
           <Route path='orders' element={<Orders />} />
@@ -75,11 +85,14 @@ const App = () => {
         </Route>
 
         {/* SHOP-VIEW-ROUTES */}
-        <Route path='/' element={
-          <CheckAuth isAuthenticated={isAuthenticated} user={user}>
-            <RootLayout />
-          </CheckAuth>
-        }>
+        <Route
+          path='/'
+          element={
+            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+              <RootLayout />
+            </CheckAuth>
+          }
+        >
           <Route index element={<Home />} />
           <Route path='shop' element={<Shop />} />
           <Route path='checkout' element={<Checkout />} />
@@ -91,7 +104,7 @@ const App = () => {
         <Route path='/unauthorize' element={<UnAuthPage />} />
       </Routes>
     </div>
-  )
-}
+  );
+};
 
 export default App;

@@ -11,7 +11,7 @@ const title = 'Login To Your Account';
 
 const initialState = {
   email: '',
-  password: ''
+  password: '',
 };
 
 const Login = () => {
@@ -38,7 +38,7 @@ const Login = () => {
 
   return (
     <div className='mx-auto w-full space-y-6'>
-      <div className="text-center">
+      <div className='text-center'>
         <h2 className='text-4xl font-oxanium font-bold tracking-tight text-foreground'>
           {title}
         </h2>
@@ -52,17 +52,19 @@ const Login = () => {
         onSubmit={onSubmit}
       />
 
-      <div className="text-center mt-2">
+      <div className='text-center mt-2'>
         <p className='font-oxanium'>
-            Don't have any account?
-            
-            <Link to='/register' className='font-bold hover:underline hover:text-primarybg font-playwriteGBS ml-2'>
-              Register
-            </Link>
-          </p>
+          Don't have any account?
+          <Link
+            to='/register'
+            className='font-bold hover:underline hover:text-primarybg font-playwriteGBS ml-2'
+          >
+            Register
+          </Link>
+        </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Login;

@@ -17,7 +17,7 @@ const AdminSidebar = ({ open, setOpen }) => {
         </nav>
       </aside>
     </>
-  )
-}
+  );
+};
 
 export default AdminSidebar;

@@ -11,7 +11,7 @@ const AdminLayout = () => {
       {/* ADMIN-SIDEBAR */}
       <AdminSidebar open={openSidebar} setOpen={setOpenSidebar} />
 
-      <div className="flex flex-col flex-1">
+      <div className='flex flex-col flex-1'>
         {/* ADMIN-HEADER */}
         <AdminHeader setOpen={setOpenSidebar} />
 
@@ -20,7 +20,7 @@ const AdminLayout = () => {
         </main>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default AdminLayout;

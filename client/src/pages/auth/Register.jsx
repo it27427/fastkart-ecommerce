@@ -13,7 +13,7 @@ const initialState = {
   userName: '',
   email: '',
   phone: '',
-  password: ''
+  password: '',
 };
 
 const Register = () => {
@@ -26,7 +26,7 @@ const Register = () => {
     e.preventDefault();
 
     dispatch(registerUser(formData)).then((data) => {
-      if(data?.payload?.success) {
+      if (data?.payload?.success) {
         toast({
           title: data?.payload?.message,
         });
@@ -42,7 +42,7 @@ const Register = () => {
 
   return (
     <div className='mx-auto w-full space-y-6'>
-      <div className="text-center">
+      <div className='text-center'>
         <h2 className='text-4xl font-oxanium font-bold tracking-tight text-foreground'>
           {title}
         </h2>
@@ -56,17 +56,19 @@ const Register = () => {
         onSubmit={onSubmit}
       />
 
-      <div className="mt-2 text-center">
+      <div className='mt-2 text-center'>
         <p className='font-oxanium'>
           Already have an account?
-          
-          <Link to='/login' className='font-bold hover:underline hover:text-primarybg font-playwriteGBS ml-2'>
+          <Link
+            to='/login'
+            className='font-bold hover:underline hover:text-primarybg font-playwriteGBS ml-2'
+          >
             Login
           </Link>
         </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Register;

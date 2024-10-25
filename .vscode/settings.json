@@ -1,3 +1,25 @@
 {
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript, javascriptreact, typescript]": {
+    "editor.formatOnSave": true
+  },
+  "files.associations": {
+    "*.js": "javascriptreact"
+  },
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.wordWrap": "on",
+  "editor.tabSize": 2,
+  "editor.minimap.enabled": false,
+  "workbench.iconTheme": "vscode-icons",
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 }
