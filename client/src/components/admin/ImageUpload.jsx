@@ -1,5 +1,7 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import axios from 'axios';
 import { FileIcon, UploadCloudIcon, XIcon } from 'lucide-react';
+
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -11,6 +13,20 @@ const ProductImageUpload = ({
   setUploadedImgUrl,
 }) => {
   const inputRef = useRef(null);
+
+  const uploadImageToCloudinary = async () => {
+    const data = new FormData();
+    data.append('my_file', imageFile);
+    const url = 'http://localhost:8080/api/admin/products/upload-image';
+    console.log(data);
+    const response = axios.post(url, data);
+
+    if (response) setUploadedImgUrl(response.data);
+  };
+
+  useEffect(() => {
+    if (imageFile !== null) uploadImageToCloudinary();
+  }, [imageFile]);
 
   const handleImageFileChange = (e) => {
     const selectedFile = e.target.files?.[0];

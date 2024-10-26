@@ -12,14 +12,14 @@ connectDB();
 
 /** IMPORT-ROUTES **/
 const authRouter = require('./routes/auth/auth.routes');
-const adminRouter = require('./routes/admin/admin.routes');
+const productsRouter = require('./routes/admin/products.routes');
 
 const app = express();
 
 // CORS configuration
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:5173',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: [
       'Content-Type',
@@ -40,10 +40,6 @@ app.use(morgan('dev'));
 
 // ROUTES
 app.use('/api/auth', authRouter);
-app.use('/api/admin/products', adminRouter);
-
-app.get('/', (req, res) => {
-  res.send('<h1>Hello from home route</h1>');
-});
+app.use('/api/admin/products', productsRouter);
 
 module.exports = app;
