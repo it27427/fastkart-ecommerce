@@ -11,7 +11,7 @@ const connectDB = require('./config/db');
 connectDB();
 
 /** IMPORT-ROUTES **/
-const authRouter = require('./routes/auth.routes');
+const authRouter = require('./routes/auth/auth.routes');
 
 const app = express();
 
