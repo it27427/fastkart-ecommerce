@@ -11,17 +11,26 @@ const ProductImageUpload = ({
   setImageFile,
   uploadedImgUrl,
   setUploadedImgUrl,
+  setImageLoading,
 }) => {
   const inputRef = useRef(null);
 
   const uploadImageToCloudinary = async () => {
+    setImageLoading(true);
+
     const data = new FormData();
     data.append('my_file', imageFile);
-    const url = 'http://localhost:8080/api/admin/products/upload-image';
-    console.log(data);
-    const response = axios.post(url, data);
 
-    if (response) setUploadedImgUrl(response.data);
+    const url = 'http://localhost:8080/api/admin/products/upload-image';
+    const response = await axios.post(url, data);
+
+    console.log(data);
+    console.log(response);
+
+    if (response.data?.success) {
+      setUploadedImgUrl(response.data.result.url);
+      setImageLoading(false);
+    }
   };
 
   useEffect(() => {

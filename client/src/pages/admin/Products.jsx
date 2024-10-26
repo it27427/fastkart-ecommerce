@@ -28,6 +28,7 @@ const Products = () => {
   const [formData, setFormData] = useState(initialFormData);
   const [imageFile, setImageFile] = useState(null);
   const [uploadedImgUrl, setUploadedImgUrl] = useState('');
+  const [imageLoading, setImageLoading] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -66,6 +67,8 @@ const Products = () => {
             setImageFile={setImageFile}
             uploadedImgUrl={uploadedImgUrl}
             setUploadedImgUrl={setUploadedImgUrl}
+            imageLoading={imageLoading}
+            setImageLoading={setImageLoading}
           />
 
           {/* PRODUCT-FORM-CONFIGURATION */}
