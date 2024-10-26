@@ -12,6 +12,7 @@ connectDB();
 
 /** IMPORT-ROUTES **/
 const authRouter = require('./routes/auth/auth.routes');
+const adminRouter = require('./routes/admin/admin.routes');
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use(morgan('dev'));
 
 // ROUTES
 app.use('/api/auth', authRouter);
+app.use('/api/admin/products', adminRouter);
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello from home route</h1>');
