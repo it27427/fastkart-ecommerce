@@ -8,6 +8,16 @@ cloudinary.config({
   api_secret: config.cloudinary.apiSecret,
 });
 
-const multer = new multer.memoryStorage();
+const storage = new multer.memoryStorage();
 
-const handleImageUpload = async () => {};
+const handleImageUpload = async (file) => {
+  const result = await cloudinary.uploader.upload(file, {
+    resource_type: 'auto',
+  });
+
+  return result;
+};
+
+const upload = multer({ storage });
+
+module.exports = { upload, handleImageUpload };
