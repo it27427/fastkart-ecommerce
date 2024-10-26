@@ -24,9 +24,6 @@ const ProductImageUpload = ({
     const url = 'http://localhost:8080/api/admin/products/upload-image';
     const response = await axios.post(url, data);
 
-    console.log(data);
-    console.log(response);
-
     if (response.data?.success) {
       setUploadedImgUrl(response.data.result.url);
       setImageLoading(false);
