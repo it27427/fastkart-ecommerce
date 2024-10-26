@@ -16,7 +16,7 @@ const authMiddleware = async (req, res, next) => {
     req.user = decoded;
     next();
   } catch (error) {
-    console.error(error);
+    console.error('Authorization Error:', error);
     res.status(401).json({
       success: false,
       message: 'Unauthorized User!',

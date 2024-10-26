@@ -74,7 +74,7 @@ const loginUser = async (req, res) => {
         email: checkUser.email,
       },
       secretKey,
-      { expiresIn: '30m' }
+      { expiresIn: '90m' }
     );
 
     res
