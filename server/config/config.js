@@ -11,6 +11,12 @@ const dev = {
   token: {
     key: process.env.SECRET_KEY || 'CLIENT_SECRET_KEY',
   },
+  cloudinary: {
+    cloudName: process.env.CLOUD_NAME,
+    apiKey: process.env.CLOUD_API_KEY,
+    apiSecret: process.env.CLOUT_API_SECRET,
+    cloudinaryURL: process.env.CLOUDINARY_URL,
+  },
 };
 
 module.exports = dev;

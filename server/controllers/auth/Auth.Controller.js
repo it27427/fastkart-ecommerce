@@ -1,6 +1,5 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const multer = require('multer');
 
 const User = require('@root/models/user.model');
 const config = require('@root/config/config');
