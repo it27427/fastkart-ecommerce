@@ -65,7 +65,7 @@ const CommonForm = ({
               {getControlItem.options && getControlItem.options.length > 0
                 ? getControlItem.options.map((option, index) => (
                     <SelectItem
-                      key={option.id || option.value}
+                      key={option.id || index}
                       id={option.id}
                       value={option.id}
                     >
