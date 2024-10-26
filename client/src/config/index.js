@@ -132,26 +132,32 @@ export const addProductFormElements = [
     componentType: types.SELECT,
     options: [
       {
+        id: 'xs',
         label: 'XS',
         value: 'xs',
       },
       {
+        id: 's',
         label: 'S',
         value: 's',
       },
       {
+        id: 'm',
         label: 'M',
         value: 'm',
       },
       {
+        id: 'l',
         label: 'L',
         value: 'l',
       },
       {
+        id: 'xl',
         label: 'XL',
         value: 'xl',
       },
       {
+        id: 'xxl',
         label: 'XXL',
         value: 'xxl',
       },
@@ -164,54 +170,67 @@ export const addProductFormElements = [
     componentType: types.SELECT,
     options: [
       {
+        id: 'red',
         label: 'Red',
         value: 'red',
       },
       {
-        label: 'Blue',
-        value: 'blue',
-      },
-      {
+        id: 'green',
         label: 'Green',
         value: 'green',
       },
       {
+        id: 'blue',
+        label: 'Blue',
+        value: 'blue',
+      },
+      {
+        id: 'yellow',
         label: 'Yellow',
         value: 'yellow',
       },
       {
+        id: 'orange',
         label: 'Orange',
         value: 'orange',
       },
       {
+        id: 'purple',
         label: 'Purple',
         value: 'purple',
       },
       {
+        id: 'pink',
         label: 'Pink',
         value: 'pink',
       },
       {
+        id: 'black',
         label: 'Black',
         value: 'black',
       },
       {
+        id: 'white',
         label: 'White',
         value: 'white',
       },
       {
+        id: 'gray',
         label: 'Gray',
         value: 'gray',
       },
       {
+        id: 'brown',
         label: 'Brown',
         value: 'brown',
       },
       {
+        id: 'cyan',
         label: 'Cyan',
         value: 'cyan',
       },
       {
+        id: 'magenta',
         label: 'Magenta',
         value: 'magenta',
       },
@@ -304,49 +323,49 @@ export const brandOptionsMap = {
 export const filterOptions = {
   category: [
     {
-      id: 'men',
+      id: 'ctg-men',
       label: 'Men',
     },
     {
-      id: 'women',
+      id: 'ctg-women',
       label: 'Women',
     },
     {
-      id: 'kids',
+      id: 'ctg-kids',
       label: 'Kids',
     },
     {
-      id: 'accessories',
+      id: 'ctg-accessories',
       label: 'Accessories',
     },
     {
-      id: 'footwear',
+      id: 'ctg-footwear',
       label: 'Footwear',
     },
   ],
   brand: [
     {
-      id: 'nike',
+      id: 'ctg-nike',
       label: 'Nike',
     },
     {
-      id: 'adidas',
+      id: 'ctg-adidas',
       label: 'Adidas',
     },
     {
-      id: 'puma',
+      id: 'ctg-puma',
       label: 'Puma',
     },
     {
-      id: 'levi',
+      id: 'ctg-levi',
       label: "Levi's",
     },
     {
-      id: 'zara',
+      id: 'ctg-zara',
       label: 'Zara',
     },
     {
-      id: 'h&m',
+      id: 'ctg-h&m',
       label: 'H&M',
     },
   ],
