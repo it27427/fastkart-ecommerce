@@ -7,3 +7,7 @@ cloudinary.config({
   api_key: config.cloudinary.apiKey,
   api_secret: config.cloudinary.apiSecret,
 });
+
+const multer = new multer.memoryStorage();
+
+const handleImageUpload = async () => {};
