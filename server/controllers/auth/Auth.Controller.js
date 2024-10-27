@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 
 const User = require('@root/models/user.model');
 const config = require('@root/config/config');
+const { handleResponse } = require('@root/helpers/handleresponse');
 
 /** REGISTER-CONTROLLER **/
 const registerUser = async (req, res) => {
@@ -12,10 +13,11 @@ const registerUser = async (req, res) => {
     const checkUser = await User.findOne({ email });
 
     if (checkUser) {
-      return res.status(409).json({
-        success: false,
-        message: 'User already exists! Please try with another unique e-mail.',
-      });
+      handleResponse(
+        res,
+        409,
+        'User already exists! Please try with another unique e-mail.'
+      );
     }
 
     const hashedPassword = await bcrypt.hash(password, 12);
@@ -27,16 +29,10 @@ const registerUser = async (req, res) => {
     });
 
     await newUser.save();
-    res.status(201).json({
-      success: true,
-      message: 'Registration Successfully Done!',
-    });
+    handleResponse(res, 201, true, 'Registration Successfully Done!');
   } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      success: false,
-      message: 'Some error occurred',
-    });
+    console.error('Error: ', error);
+    handleResponse(res, 500, error);
   }
 };
 
@@ -48,10 +44,7 @@ const loginUser = async (req, res) => {
     const checkUser = await User.findOne({ email });
 
     if (!checkUser) {
-      return res.status(404).json({
-        success: false,
-        message: "User doesn't exist! Please register first.",
-      });
+      handleResponse(res, 404, "User doesn't exist! Please register first.");
     }
 
     const checkPasswordMatch = await bcrypt.compare(
@@ -60,10 +53,7 @@ const loginUser = async (req, res) => {
     );
 
     if (!checkPasswordMatch) {
-      return res.status(401).json({
-        success: false,
-        message: 'Invalid password! Please try again.',
-      });
+      handleResponse(res, 401, 'Invalid password! Please try again.');
     }
 
     const secretKey = config.token.key;
@@ -91,10 +81,7 @@ const loginUser = async (req, res) => {
       });
   } catch (error) {
     console.error(error);
-    res.status(500).json({
-      success: false,
-      message: 'Some error occurred',
-    });
+    handleResponse(res, 500, error);
   }
 };
 
@@ -106,11 +93,8 @@ const logoutUser = (req, res) => {
       message: 'Logged out successfully!',
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      success: false,
-      message: 'Some error occurred',
-    });
+    console.error('Error: ', error);
+    handleResponse(res, 500, error);
   }
 };
 

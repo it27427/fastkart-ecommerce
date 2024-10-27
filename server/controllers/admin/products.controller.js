@@ -1,4 +1,5 @@
 const { handleImageUploader } = require('../../helpers/cloudinary');
+const { handleResponse } = require('@root/helpers/handleresponse');
 
 /** HANDLE PRODUCT-IMAGE UPLOAD **/
 const handleImageUpload = async (req, res) => {
@@ -22,7 +23,13 @@ const handleImageUpload = async (req, res) => {
 };
 
 /** ADD A NEW PRODUCT **/
-const addProduct = async (req, res) => {};
+const addProduct = async (req, res) => {
+  try {
+  } catch (error) {
+    console.error('Product Error: ', error);
+    handleResponse(res, 500, 'Internal server error', error);
+  }
+};
 
 /** GET ALL-PRODUCTS **/
 const getAllProducts = async (req, res) => {};
