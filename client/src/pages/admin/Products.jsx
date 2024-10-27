@@ -32,8 +32,9 @@ const Products = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
   };
+
+  console.log(formData);
 
   return (
     <>
