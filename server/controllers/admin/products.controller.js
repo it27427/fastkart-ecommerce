@@ -33,4 +33,10 @@ const updateProduct = async (req, res) => {};
 /** DELETE PRODUCT **/
 const deleteProduct = (req, res) => {};
 
-module.exports = { handleImageUpload };
+module.exports = {
+  handleImageUpload,
+  addProduct,
+  getAllProducts,
+  updateProduct,
+  deleteProduct,
+};
