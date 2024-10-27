@@ -1,5 +1,6 @@
 const { handleImageUploader } = require('../../helpers/cloudinary');
 
+/** HANDLE PRODUCT-IMAGE UPLOAD **/
 const handleImageUpload = async (req, res) => {
   try {
     const b64 = Buffer.from(req.file.buffer).toString('base64');
@@ -19,5 +20,17 @@ const handleImageUpload = async (req, res) => {
     });
   }
 };
+
+/** ADD A NEW PRODUCT **/
+const addProduct = async (req, res) => {};
+
+/** GET ALL-PRODUCTS **/
+const getAllProducts = async (req, res) => {};
+
+/** UPDATE PRODUCT **/
+const updateProduct = async (req, res) => {};
+
+/** DELETE PRODUCT **/
+const deleteProduct = (req, res) => {};
 
 module.exports = { handleImageUpload };
