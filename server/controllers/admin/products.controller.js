@@ -1,4 +1,5 @@
-const { handleImageUploader } = require('../../helpers/cloudinary');
+const Product = require('@root/models/product.model');
+const { handleImageUploader } = require('@root/helpers/cloudinary');
 const { handleResponse } = require('@root/helpers/handleresponse');
 
 /** HANDLE PRODUCT-IMAGE UPLOAD **/
@@ -24,26 +25,125 @@ const handleImageUpload = async (req, res) => {
 
 /** ADD A NEW PRODUCT **/
 const addProduct = async (req, res) => {
+  const {
+    image,
+    title,
+    description,
+    category,
+    brand,
+    size,
+    color,
+    price,
+    salePrice,
+    totalStock,
+  } = req.body;
+
   try {
+    /** CREATE NEW-PRODUCT **/
+    const newProduct = new Product({
+      image,
+      title,
+      description,
+      category,
+      brand,
+      size,
+      color,
+      price,
+      salePrice,
+      totalStock,
+    });
+
+    /** SAVE PRODUCT **/
+    await newProduct.save();
+    res.status(201).json({
+      success: true,
+      message: 'Product Created Successfully!',
+      data: newProduct,
+    });
   } catch (error) {
-    console.error('Product Error: ', error);
+    console.error('Error: ', error);
     handleResponse(res, 500, 'Internal server error', error);
   }
 };
 
 /** GET ALL-PRODUCTS **/
-const getAllProducts = async (req, res) => {};
+const fetchAllProducts = async (req, res) => {
+  try {
+    const listOfProducts = await Product.find({});
+    res.status(200).json({
+      success: true,
+      data: listOfProducts,
+    });
+  } catch (error) {
+    console.error('Error: ', error);
+    handleResponse(res, 500, 'Internal server error', error);
+  }
+};
 
 /** UPDATE PRODUCT **/
-const updateProduct = async (req, res) => {};
+const updateProduct = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const {
+      image,
+      title,
+      description,
+      category,
+      brand,
+      size,
+      color,
+      price,
+      salePrice,
+      totalStock,
+    } = req.body;
+
+    const findProduct = await Product.findById(id);
+    if (!findProduct) handleResponse(res, 404, 'Product not found!');
+
+    /** UPDATE-PRODUCT **/
+    findProduct.title = title || findProduct.title;
+    findProduct.description = description || findProduct.description;
+    findProduct.category = category || findProduct.category;
+    findProduct.brand = brand || findProduct.brand;
+    findProduct.size = size || findProduct.size;
+    findProduct.color = color || findProduct.color;
+    findProduct.price = price || findProduct.price;
+    findProduct.salePrice = salePrice || findProduct.salePrice;
+    findProduct.totalStock = totalStock || findProduct.totalStock;
+    findProduct.image = image || findProduct.image;
+
+    await findProduct.save();
+    res.status(200).json({
+      success: true,
+      message: 'Product Updated Successfully!',
+      data: findProduct,
+    });
+  } catch (error) {
+    console.error('Error: ', error);
+    handleResponse(res, 500, 'Internal server error', error);
+  }
+};
 
 /** DELETE PRODUCT **/
-const deleteProduct = (req, res) => {};
+const deleteProduct = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const product = await Product.findByIdAndDelete(id);
+
+    if (!product) handleResponse(res, 404, 'Product not found!');
+
+    handleResponse(res, 200, 'Product deleted successfully!');
+  } catch (error) {
+    console.error('Error: ', error);
+    handleResponse(res, 500, 'Internal server error', error);
+  }
+};
 
 module.exports = {
   handleImageUpload,
   addProduct,
-  getAllProducts,
+  fetchAllProducts,
   updateProduct,
   deleteProduct,
 };

@@ -3,6 +3,10 @@ const router = express.Router();
 
 const {
   handleImageUpload,
+  addProduct,
+  fetchAllProducts,
+  updateProduct,
+  deleteProduct,
 } = require('../../controllers/admin/products.controller');
 const { upload } = require('../../helpers/cloudinary');
 

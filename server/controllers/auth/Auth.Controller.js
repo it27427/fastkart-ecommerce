@@ -64,7 +64,7 @@ const loginUser = async (req, res) => {
         email: checkUser.email,
       },
       secretKey,
-      { expiresIn: '90m' }
+      { expiresIn: '120m' }
     );
 
     res
@@ -80,7 +80,7 @@ const loginUser = async (req, res) => {
         },
       });
   } catch (error) {
-    console.error(error);
+    console.error('Error: ', error);
     handleResponse(res, 500, error);
   }
 };
