@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -11,6 +12,7 @@ import {
 import CommonForm from '@/components/common/Form';
 import { addProductFormElements } from '@/config';
 import ProductImageUpload from '@/components/admin/ImageUpload';
+import { createNewProduct, fetchAllProducts } from '@/store/admin/products';
 
 const initialFormData = {
   image: null,
@@ -29,12 +31,23 @@ const Products = () => {
   const [imageFile, setImageFile] = useState(null);
   const [uploadedImgUrl, setUploadedImgUrl] = useState('');
   const [imageLoading, setImageLoading] = useState(false);
+  const { products } = useSelector((state) => state.adminProducts);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetchAllProducts();
+  }, [dispatch]);
 
   const onSubmit = (e) => {
     e.preventDefault();
+    dispatch(createNewProduct({ ...formData, image: uploadedImgUrl })).then(
+      (data) => {
+        console.log(data);
+      }
+    );
   };
 
-  console.log(formData);
+  console.log('Products: ', products, uploadedImgUrl);
 
   return (
     <>
