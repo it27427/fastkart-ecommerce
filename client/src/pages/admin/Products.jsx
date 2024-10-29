@@ -13,6 +13,7 @@ import CommonForm from '@/components/common/Form';
 import { addProductFormElements } from '@/config';
 import ProductImageUpload from '@/components/admin/ImageUpload';
 import { createNewProduct, fetchAllProducts } from '@/store/admin/products';
+import { useToast } from '@/hooks/use-toast';
 
 const initialFormData = {
   image: null,
@@ -33,6 +34,7 @@ const Products = () => {
   const [imageLoading, setImageLoading] = useState(false);
   const { products } = useSelector((state) => state.adminProducts);
   const dispatch = useDispatch();
+  const { toast } = useToast();
 
   useEffect(() => {
     fetchAllProducts();
@@ -42,7 +44,20 @@ const Products = () => {
     e.preventDefault();
     dispatch(createNewProduct({ ...formData, image: uploadedImgUrl })).then(
       (data) => {
-        console.log(data);
+        if (data?.payload?.success) {
+          dispatch(fetchAllProducts());
+          imageFile(null);
+          setFormData(initialFormData);
+          setOpenCreateProducts(false);
+          toast({
+            title: data?.payload?.message,
+          });
+        } else {
+          toast({
+            variant: 'destructive',
+            title: data?.payload?.message,
+          });
+        }
       }
     );
   };
