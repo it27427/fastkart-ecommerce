@@ -46,7 +46,7 @@ const Products = () => {
       (data) => {
         if (data?.payload?.success) {
           dispatch(fetchAllProducts());
-          imageFile(null);
+          setImageFile(null);
           setFormData(initialFormData);
           setOpenCreateProducts(false);
           toast({
