@@ -73,8 +73,7 @@ const Products = () => {
         </Button>
       </div>
 
-      <div className='grid gap-4 md:grid-cols-3 lg:grid-cols-4'></div>
-
+      {/* PRODUCT-UPLOADER */}
       <Sheet
         open={openCreateProducts}
         onOpenChange={() => {
@@ -113,6 +112,9 @@ const Products = () => {
           </div>
         </SheetContent>
       </Sheet>
+
+      {/* PRODUCTS-VIEW */}
+      <div className='grid gap-4 md:grid-cols-3 lg:grid-cols-4'></div>
     </>
   );
 };
