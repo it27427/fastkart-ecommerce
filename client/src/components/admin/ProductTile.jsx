@@ -1,7 +1,8 @@
 import React from 'react';
+import { Card } from '@/components/ui/card';
 
-const ProductTile = () => {
-  return <div>ProductTile</div>;
+const ProductTile = ({ product }) => {
+  return <Card>ProductTile</Card>;
 };
 
 export default ProductTile;
