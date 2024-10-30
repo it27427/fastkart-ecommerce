@@ -1,18 +1,16 @@
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
-const ProductTile = ({ product }) => {
+const ProductTile = ({ product, setFormData, setOpenCreateProducts }) => {
   return (
     <Card className='w-full max-w-sm mx-auto'>
-      <div>
-        <figure className='positive'>
-          <img
-            src={product?.image}
-            alt={product?.title}
-            className='w-full h-[200] object-cover rounded-t-lg'
-          />
-        </figure>
-      </div>
+      <figure className='positive'>
+        <img
+          src={product?.image}
+          alt={product?.title}
+          className='w-full h-[200] object-cover rounded-t-lg'
+        />
+      </figure>
 
       <CardContent>
         <div className='flex flex-col gap-2 mb-2 pt-2'>

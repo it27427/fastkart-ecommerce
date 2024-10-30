@@ -33,6 +33,7 @@ const Products = () => {
   const [imageFile, setImageFile] = useState(null);
   const [uploadedImgUrl, setUploadedImgUrl] = useState('');
   const [imageLoading, setImageLoading] = useState(false);
+  const [editedId, setEditedId] = useState(null);
   const { products } = useSelector((state) => state.adminProducts);
   const dispatch = useDispatch();
   const { toast } = useToast();
@@ -87,7 +88,7 @@ const Products = () => {
           aria-describedby='admin-sidebar-description'
         >
           <SheetHeader>
-            <SheetTitle className='-mt-3'>Add New Product</SheetTitle>
+            <SheetTitle className='-mt-3'>Add a New Product</SheetTitle>
             <SheetDescription className='hidden'></SheetDescription>
           </SheetHeader>
 
@@ -118,7 +119,13 @@ const Products = () => {
       <div className='grid gap-4 md:grid-cols-3 lg:grid-cols-4'>
         {products && products.length > 0
           ? products.map((product) => (
-              <ProductTile product={product} key={product.id} />
+              <ProductTile
+                key={product.id}
+                product={product}
+                setEditedId={setEditedId}
+                setOpenCreateProducts={setOpenCreateProducts}
+                setFormData={setFormData}
+              />
             ))
           : null}
       </div>
