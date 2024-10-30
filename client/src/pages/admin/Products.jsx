@@ -33,7 +33,7 @@ const Products = () => {
   const [imageFile, setImageFile] = useState(null);
   const [uploadedImgUrl, setUploadedImgUrl] = useState('');
   const [imageLoading, setImageLoading] = useState(false);
-  const [editedId, setEditedId] = useState(null);
+  const [currentEditedId, setCurrentEditedId] = useState(null);
   const { products } = useSelector((state) => state.adminProducts);
   const dispatch = useDispatch();
   const { toast } = useToast();
@@ -122,7 +122,7 @@ const Products = () => {
               <ProductTile
                 key={product.id}
                 product={product}
-                setEditedId={setEditedId}
+                setCurrentEditedId={setCurrentEditedId}
                 setOpenCreateProducts={setOpenCreateProducts}
                 setFormData={setFormData}
               />
