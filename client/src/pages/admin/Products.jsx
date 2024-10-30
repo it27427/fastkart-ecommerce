@@ -14,6 +14,7 @@ import { addProductFormElements } from '@/config';
 import ProductImageUpload from '@/components/admin/ImageUpload';
 import { createNewProduct, fetchAllProducts } from '@/store/admin/products';
 import { useToast } from '@/hooks/use-toast';
+import ProductTile from '@/components/admin/ProductTile';
 
 const initialFormData = {
   image: null,
@@ -114,7 +115,13 @@ const Products = () => {
       </Sheet>
 
       {/* PRODUCTS-VIEW */}
-      <div className='grid gap-4 md:grid-cols-3 lg:grid-cols-4'></div>
+      <div className='grid gap-4 md:grid-cols-3 lg:grid-cols-4'>
+        {products && products.length > 0
+          ? products.map((product) => (
+              <ProductTile product={product} key={product.id} />
+            ))
+          : null}
+      </div>
     </>
   );
 };
