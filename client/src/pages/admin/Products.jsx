@@ -80,6 +80,8 @@ const Products = () => {
         open={openCreateProducts}
         onOpenChange={() => {
           setOpenCreateProducts(false);
+          setCurrentEditedId(null);
+          setFormData(initialFormData);
         }}
       >
         <SheetContent
@@ -88,7 +90,9 @@ const Products = () => {
           aria-describedby='admin-sidebar-description'
         >
           <SheetHeader>
-            <SheetTitle className='-mt-3'>Add a New Product</SheetTitle>
+            <SheetTitle className='-mt-3'>
+              {currentEditedId !== null ? 'Edit Product' : 'Add a New Product'}
+            </SheetTitle>
             <SheetDescription className='hidden'></SheetDescription>
           </SheetHeader>
 
@@ -100,6 +104,7 @@ const Products = () => {
             setUploadedImgUrl={setUploadedImgUrl}
             imageLoading={imageLoading}
             setImageLoading={setImageLoading}
+            isEditMode={currentEditedId !== null}
           />
 
           {/* PRODUCT-FORM-CONFIGURATION */}
@@ -108,7 +113,7 @@ const Products = () => {
               onSubmit={onSubmit}
               formData={formData}
               setFormData={setFormData}
-              buttonText='Add'
+              buttonText={currentEditedId !== null ? 'Update' : 'Add'}
               formControls={addProductFormElements}
             />
           </div>
@@ -120,7 +125,7 @@ const Products = () => {
         {products && products.length > 0
           ? products.map((product) => (
               <ProductTile
-                key={product.id}
+                key={product._id}
                 product={product}
                 setCurrentEditedId={setCurrentEditedId}
                 setOpenCreateProducts={setOpenCreateProducts}

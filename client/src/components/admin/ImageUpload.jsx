@@ -14,6 +14,7 @@ const ProductImageUpload = ({
   setUploadedImgUrl,
   imageLoading,
   setImageLoading,
+  isEditMode,
 }) => {
   const inputRef = useRef(null);
 
@@ -68,7 +69,9 @@ const ProductImageUpload = ({
         <div
           onDragOver={handleDragOver}
           onDrop={handleDrop}
-          className='border-2 border-input border-dashed rounded px-3 py-2'
+          className={`${
+            isEditMode ? 'opacity-60' : ''
+          } border-2 border-input border-dashed rounded px-3 py-2`}
           role='button'
         >
           <Input
@@ -77,13 +80,16 @@ const ProductImageUpload = ({
             className='hidden'
             ref={inputRef}
             onChange={handleImageFileChange}
+            disabled={isEditMode}
           />
 
           <>
             {!imageFile ? (
               <Label
                 htmlFor='image-upload'
-                className='flex flex-col items-center justify-center cursor-pointer h-32'
+                className={`${
+                  isEditMode ? 'cursor-not-allowed' : ''
+                } flex flex-col items-center justify-center cursor-pointer h-32`}
               >
                 <UploadCloudIcon className='w-10 h-10 text-muted-foreground mb-2' />
                 <span>Drag & Drop Or Click to Image Upload</span>

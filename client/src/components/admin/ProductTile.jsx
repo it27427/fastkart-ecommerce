@@ -1,7 +1,12 @@
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
-const ProductTile = ({ product, setFormData, setOpenCreateProducts }) => {
+const ProductTile = ({
+  product,
+  setFormData,
+  setOpenCreateProducts,
+  setCurrentEditedId,
+}) => {
   return (
     <Card className='w-full max-w-sm mx-auto'>
       <figure className='positive'>
@@ -33,8 +38,20 @@ const ProductTile = ({ product, setFormData, setOpenCreateProducts }) => {
       </CardContent>
 
       <CardFooter className='flex items-center justify-between'>
-        <Button variant='outline'>Edit</Button>
-        <Button variant='destructive'>Delete</Button>
+        <Button
+          onClick={() => {
+            setOpenCreateProducts(true);
+            setCurrentEditedId(product?._id);
+            setFormData(product);
+          }}
+          variant='outline'
+        >
+          Edit
+        </Button>
+
+        <Button onClick={() => {}} variant='destructive'>
+          Delete
+        </Button>
       </CardFooter>
     </Card>
   );
