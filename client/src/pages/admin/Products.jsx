@@ -12,7 +12,11 @@ import {
 import CommonForm from '@/components/common/Form';
 import { addProductFormElements } from '@/config';
 import ProductImageUpload from '@/components/admin/ImageUpload';
-import { createNewProduct, fetchAllProducts } from '@/store/admin/products';
+import {
+  createNewProduct,
+  fetchAllProducts,
+  updateProduct,
+} from '@/store/admin/products';
 import { useToast } from '@/hooks/use-toast';
 import ProductTile from '@/components/admin/ProductTile';
 
@@ -39,29 +43,51 @@ const Products = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    fetchAllProducts();
+    dispatch(fetchAllProducts());
   }, [dispatch]);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(createNewProduct({ ...formData, image: uploadedImgUrl })).then(
-      (data) => {
-        if (data?.payload?.success) {
-          dispatch(fetchAllProducts());
-          setImageFile(null);
-          setFormData(initialFormData);
-          setOpenCreateProducts(false);
-          toast({
-            title: data?.payload?.message,
-          });
-        } else {
-          toast({
-            variant: 'destructive',
-            title: data?.payload?.message,
-          });
-        }
-      }
-    );
+
+    currentEditedId !== null
+      ? dispatch(updateProduct({ id: currentEditedId, formData })).then(
+          (data) => {
+            if (data?.payload?.success) {
+              dispatch(fetchAllProducts());
+              setFormData(initialFormData);
+              setOpenCreateProducts(false);
+              setCurrentEditedId(null);
+
+              toast({
+                title: data?.payload?.message,
+              });
+            } else {
+              toast({
+                variant: 'destructive',
+                title: data?.payload?.message,
+              });
+            }
+          }
+        )
+      : /** CREATE-PRODUCT **/
+        dispatch(createNewProduct({ ...formData, image: uploadedImgUrl })).then(
+          (data) => {
+            if (data?.payload?.success) {
+              dispatch(fetchAllProducts());
+              setImageFile(null);
+              setFormData(initialFormData);
+              setOpenCreateProducts(false);
+              toast({
+                title: data?.payload?.message,
+              });
+            } else {
+              toast({
+                variant: 'destructive',
+                title: data?.payload?.message,
+              });
+            }
+          }
+        );
   };
 
   console.log('Products: ', products, uploadedImgUrl);
