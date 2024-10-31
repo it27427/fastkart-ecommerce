@@ -147,6 +147,7 @@ const Products = () => {
               setFormData={setFormData}
               buttonText={currentEditedId !== null ? 'Update' : 'Add'}
               formControls={addProductFormElements}
+              isButtonDisabled={!isFormValid()}
             />
           </div>
         </SheetContent>
