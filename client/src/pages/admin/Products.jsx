@@ -42,6 +42,12 @@ const Products = () => {
   const dispatch = useDispatch();
   const { toast } = useToast();
 
+  const isFormValid = () => {
+    return Object.keys(formData)
+      .map((key) => formData[key] !== '')
+      .every((item) => item);
+  };
+
   useEffect(() => {
     dispatch(fetchAllProducts());
   }, [dispatch]);
