@@ -12,6 +12,7 @@ const ProductTile = ({
   setFormData,
   setOpenCreateProducts,
   setCurrentEditedId,
+  handleDelete,
 }) => {
   return (
     <Card className='w-full max-w-sm mx-auto'>
@@ -70,7 +71,7 @@ const ProductTile = ({
         </Button>
 
         <Button
-          onClick={() => {}}
+          onClick={() => handleDelete(product?._id)}
           variant='destructive'
           className='font-barlow'
         >
