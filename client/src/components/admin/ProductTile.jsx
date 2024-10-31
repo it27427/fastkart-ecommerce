@@ -1,5 +1,11 @@
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 const ProductTile = ({
   product,
@@ -19,7 +25,18 @@ const ProductTile = ({
 
       <CardContent>
         <div className='flex flex-col gap-2 mb-2 pt-2'>
-          <h2 className='text-lg font-bold line-clamp-1'>{product?.title}</h2>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <h2 className='text-lg font-bold line-clamp-1 text-left'>
+                  {product?.title}
+                </h2>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{product?.title}</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
 
           <div className='flex items-center justify-between'>
             <span
