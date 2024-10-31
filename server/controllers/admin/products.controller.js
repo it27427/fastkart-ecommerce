@@ -97,7 +97,7 @@ const updateProduct = async (req, res) => {
       totalStock,
     } = req.body;
 
-    const findProduct = await Product.findById(id);
+    let findProduct = await Product.findById(id);
     if (!findProduct) handleResponse(res, 404, 'Product not found!');
 
     /** UPDATE-PRODUCT **/
@@ -107,8 +107,9 @@ const updateProduct = async (req, res) => {
     findProduct.brand = brand || findProduct.brand;
     findProduct.size = size || findProduct.size;
     findProduct.color = color || findProduct.color;
-    findProduct.price = price || findProduct.price;
-    findProduct.salePrice = salePrice || findProduct.salePrice;
+    findProduct.price = price === '' ? 0 : price || findProduct.price;
+    findProduct.salePrice =
+      salePrice === '' ? 0 : salePrice || findProduct.salePrice;
     findProduct.totalStock = totalStock || findProduct.totalStock;
     findProduct.image = image || findProduct.image;
 
