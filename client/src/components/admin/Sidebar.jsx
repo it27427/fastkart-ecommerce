@@ -9,7 +9,7 @@ const AdminSidebar = ({ open, setOpen }) => {
       <MobileSidebar open={open} setOpen={setOpen} />
 
       {/* DESKTOP-VIEW */}
-      <aside className='hidden w-64 flex-col gap-8 border-r bg-background p-6 pt-0 lg:flex'>
+      <aside className='sticky top-0 left-0 hidden w-64 flex-col gap-8 border-r bg-background p-6 pt-0 lg:flex'>
         <BrandHeader />
 
         <nav>
