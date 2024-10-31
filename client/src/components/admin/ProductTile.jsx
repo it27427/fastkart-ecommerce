@@ -32,8 +32,10 @@ const ProductTile = ({
                   {product?.title}
                 </h2>
               </TooltipTrigger>
-              <TooltipContent>
-                <p>{product?.title}</p>
+              <TooltipContent className='bg-primary border-primary'>
+                <p className='text-white font-semibold font-barlow text-xs'>
+                  {product?.title}
+                </p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -62,11 +64,16 @@ const ProductTile = ({
             setFormData(product);
           }}
           variant='outline'
+          className='font-barlow'
         >
           Edit
         </Button>
 
-        <Button onClick={() => {}} variant='destructive'>
+        <Button
+          onClick={() => {}}
+          variant='destructive'
+          className='font-barlow'
+        >
           Delete
         </Button>
       </CardFooter>
