@@ -48,6 +48,10 @@ const Products = () => {
       .every((item) => item);
   };
 
+  const handleDelete = (getCurrentProductId) => {
+    console.log(getCurrentProductId);
+  };
+
   useEffect(() => {
     dispatch(fetchAllProducts());
   }, [dispatch]);
@@ -163,6 +167,7 @@ const Products = () => {
                 setCurrentEditedId={setCurrentEditedId}
                 setOpenCreateProducts={setOpenCreateProducts}
                 setFormData={setFormData}
+                handleDelete={handleDelete}
               />
             ))
           : null}
