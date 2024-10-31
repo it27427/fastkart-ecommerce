@@ -9,17 +9,17 @@ const ProductTile = ({
 }) => {
   return (
     <Card className='w-full max-w-sm mx-auto'>
-      <figure className='positive'>
+      <figure className='positive overflow-hidden'>
         <img
           src={product?.image}
           alt={product?.title}
-          className='w-full h-[200] object-cover rounded-t-lg'
+          className='w-full h-[12.5rem] object-cover rounded-t-lg'
         />
       </figure>
 
       <CardContent>
         <div className='flex flex-col gap-2 mb-2 pt-2'>
-          <h2 className='text-lg font-bold'>{product?.title}</h2>
+          <h2 className='text-lg font-bold line-clamp-1'>{product?.title}</h2>
 
           <div className='flex items-center justify-between'>
             <span
