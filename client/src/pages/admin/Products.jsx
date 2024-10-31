@@ -50,7 +50,6 @@ const Products = () => {
   };
 
   const handleDelete = (getCurrentProductId) => {
-    console.log(getCurrentProductId);
     dispatch(deleteProduct({ id: getCurrentProductId })).then((data) => {
       if (data?.payload?.success) {
         dispatch(fetchAllProducts());
@@ -110,7 +109,7 @@ const Products = () => {
         );
   };
 
-  console.log('Products: ', products, uploadedImgUrl);
+  // console.log('Products: ', products, uploadedImgUrl);
 
   return (
     <>
