@@ -14,6 +14,7 @@ import { addProductFormElements } from '@/config';
 import ProductImageUpload from '@/components/admin/ImageUpload';
 import {
   createNewProduct,
+  deleteProduct,
   fetchAllProducts,
   updateProduct,
 } from '@/store/admin/products';
@@ -50,6 +51,15 @@ const Products = () => {
 
   const handleDelete = (getCurrentProductId) => {
     console.log(getCurrentProductId);
+    dispatch(deleteProduct({ id: getCurrentProductId })).then((data) => {
+      if (data?.payload?.success) {
+        dispatch(fetchAllProducts());
+
+        toast({
+          title: data?.payload?.message,
+        });
+      }
+    });
   };
 
   useEffect(() => {

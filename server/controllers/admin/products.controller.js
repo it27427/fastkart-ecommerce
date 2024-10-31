@@ -134,7 +134,7 @@ const deleteProduct = async (req, res) => {
 
     if (!product) handleResponse(res, 404, 'Product not found!');
 
-    handleResponse(res, 200, 'Product deleted successfully!');
+    handleResponse(res, 200, true, 'Product deleted successfully!');
   } catch (error) {
     console.error('Error: ', error);
     handleResponse(res, 500, 'Internal server error', error);
