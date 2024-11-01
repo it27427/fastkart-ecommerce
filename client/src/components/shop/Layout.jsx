@@ -9,7 +9,7 @@ const RootLayout = () => {
       <ShopHeader />
 
       {/* MAIN-CONTENT */}
-      <main className='flex flex-col w-full'>
+      <main className='flex flex-col w-full min-h-screen'>
         <Outlet />
       </main>
 
