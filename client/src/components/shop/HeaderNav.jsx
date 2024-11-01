@@ -1,19 +1,15 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Store } from 'lucide-react';
 import DesktopMenu from './DesktopMenu';
 import MobileMenu from './MobileMenu';
+import Logo from './BrandLogo';
 
 const HeaderNav = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
 
   return (
     <nav className='flex h-16 items-center justify-between px-6 w-full'>
-      <Link to='/shop' className='flex items-center gap-1'>
-        <Store className='w-5 h-5' />
-        <span className='font-bold mt-1 uppercase'>Shop</span>
-      </Link>
+      {/* BRAND-LOGO */}
+      <Logo />
 
       {/* MOBILE-MENU */}
       <MobileMenu />
@@ -22,6 +18,9 @@ const HeaderNav = () => {
       <div className='hidden lg:block'>
         <DesktopMenu />
       </div>
+
+      {/* CHECKING USER-AUTHENTICATON */}
+      {isAuthenticated ? <div></div> : null}
     </nav>
   );
 };

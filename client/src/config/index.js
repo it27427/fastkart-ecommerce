@@ -267,8 +267,8 @@ export const shopHeaderMenuItems = [
     path: '/',
   },
   {
-    id: 'products',
-    label: 'Products',
+    id: 'shop',
+    label: 'Shop',
     path: '/shop',
   },
   {
