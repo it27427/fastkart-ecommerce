@@ -1,6 +1,6 @@
-import React from 'react';
-import { AlignJustify, LogOut } from 'lucide-react';
+import { AlignJustify } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import AdminLogout from './AdminLogout';
 
 const AdminHeader = ({ setOpen }) => {
   return (
@@ -13,10 +13,9 @@ const AdminHeader = ({ setOpen }) => {
         <span className='sr-only'>Toggle Menu</span>
       </Button>
 
+      {/* LOG-OUT */}
       <div className='flex flex-1 justify-end'>
-        <Button className='inline-flex items-center gap-1 rounded-md px-4 py-2 text-sm font-medium font-oxanium shadow'>
-          <LogOut /> LogOut
-        </Button>
+        <AdminLogout />
       </div>
     </header>
   );
