@@ -43,7 +43,7 @@ const ProductTile = ({
 
           <div className='flex items-center justify-between'>
             <span
-              className={`text-lg font-semibold text-slate-400 ${
+              className={`text-lg font-medium text-slate-500 ${
                 product.salePrice > 0 ? 'line-through' : ''
               }`}
             >
