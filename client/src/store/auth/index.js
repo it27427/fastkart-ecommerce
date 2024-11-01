@@ -23,7 +23,7 @@ export const loginUser = createAsyncThunk('/login', async (formData) => {
 
 export const logOutUser = createAsyncThunk('/logout', async () => {
   const url = 'http://localhost:8080/api/auth/logout';
-  const response = await axios.post(url, { withCredentials: true });
+  const response = await axios.post(url, {}, { withCredentials: true });
 
   return response.data;
 });
