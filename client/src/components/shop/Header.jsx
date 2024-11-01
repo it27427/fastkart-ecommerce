@@ -5,7 +5,7 @@ import { Sheet } from '@/components/ui/sheet';
 
 const ShopHeader = () => {
   return (
-    <header className='sticky top-0 w-full border-b bg-background'>
+    <header className='sticky top-0 flex items-center w-full border-b bg-background'>
       <div className='flex h-16 items-center justify-between px-6'>
         <Link to='/shop' className='flex items-center gap-1'>
           <Store className='w-6 h-6' />
