@@ -1,8 +1,12 @@
+import { useDispatch } from 'react-redux';
 import { LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { logOutUser } from '@/store/auth';
 
 const AdminLogout = () => {
-  const handleLogOut = () => {};
+  const dispatch = useDispatch();
+
+  const handleLogOut = () => dispatch(logOutUser());
 
   return (
     <Button
