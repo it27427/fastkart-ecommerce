@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 const RootLayout = () => {
   return (
-    <div className='flex flex-col bg-white overflow-hidden'>
+    <div className='flex flex-col bg-white'>
       {/* HEADER */}
       <ShopHeader />
 

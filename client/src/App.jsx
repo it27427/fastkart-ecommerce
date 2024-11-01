@@ -43,7 +43,7 @@ const App = () => {
   if (isLoading) return <Skeleton className='w-[600px] h-[600px]' />;
 
   return (
-    <div className='flex flex-col overflow-hidden bg-white w-full'>
+    <div className='flex flex-col bg-white w-full'>
       <Routes>
         {/* AUTH-VIEW-ROUTES */}
         <Route
