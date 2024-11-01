@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Store } from 'lucide-react';
 import DesktopMenu from './DesktopMenu';
+import MobileMenu from './MobileMenu';
 
 const HeaderNav = () => {
   return (
@@ -12,6 +13,7 @@ const HeaderNav = () => {
       </Link>
 
       {/* MOBILE-MENU */}
+      <MobileMenu />
 
       {/* DESKTOP-MENU */}
       <div className='hidden lg:block'>
