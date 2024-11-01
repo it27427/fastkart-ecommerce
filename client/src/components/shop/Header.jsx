@@ -1,9 +1,10 @@
 import React from 'react';
+import HeaderNav from './HeaderNav';
 
 const ShopHeader = () => {
   return (
     <header className='sticky top-0 flex items-center w-full border-b bg-background'>
-      <div className='flex h-16 items-center justify-between px-6 w-full'></div>
+      <HeaderNav />
     </header>
   );
 };

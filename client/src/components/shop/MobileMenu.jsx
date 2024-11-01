@@ -1,4 +1,3 @@
-import React from 'react';
 import { Menu } from 'lucide-react';
 import { Sheet, SheetContent } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
