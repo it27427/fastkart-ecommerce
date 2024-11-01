@@ -2,11 +2,21 @@ import { useDispatch } from 'react-redux';
 import { LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { logOutUser } from '@/store/auth';
+import { useToast } from '@/hooks/use-toast';
 
 const AdminLogout = () => {
   const dispatch = useDispatch();
+  const { toast } = useToast();
 
-  const handleLogOut = () => dispatch(logOutUser());
+  const handleLogOut = () => {
+    dispatch(logOutUser()).then((data) => {
+      if (data?.payload?.success) {
+        toast({
+          title: data?.payload?.message,
+        });
+      }
+    });
+  };
 
   return (
     <Button
