@@ -29,7 +29,7 @@ const ProductTile = ({
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
-                <h2 className='text-lg font-bold line-clamp-1 text-left'>
+                <h2 className='text-md font-bold line-clamp-1 text-left'>
                   {product?.title}
                 </h2>
               </TooltipTrigger>
@@ -43,7 +43,7 @@ const ProductTile = ({
 
           <div className='flex items-center justify-between'>
             <span
-              className={`text-lg font-medium text-slate-500 ${
+              className={`text-md font-medium text-slate-500 ${
                 product.salePrice > 0 ? 'line-through' : ''
               }`}
             >
@@ -51,7 +51,7 @@ const ProductTile = ({
             </span>
 
             {product.salePrice > 0 ? (
-              <span className='text-lg font-bold text-primarybg'>
+              <span className='text-md font-bold text-primarybg'>
                 ${product?.salePrice}
               </span>
             ) : null}
