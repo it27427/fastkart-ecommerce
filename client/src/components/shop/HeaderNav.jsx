@@ -7,7 +7,7 @@ const HeaderNav = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
 
   return (
-    <nav className='flex h-16 items-center justify-between px-6 w-full'>
+    <nav className='w-full h-16 flex items-center justify-between px-6'>
       {/* BRAND-LOGO */}
       <Logo />
 
