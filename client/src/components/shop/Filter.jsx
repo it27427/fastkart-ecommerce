@@ -15,13 +15,13 @@ const FilterProduct = () => {
           <div className='flex flex-col gap-2' key={filterOptions[keyItem]}>
             <h3 className='capitalize text-base font-bold'>{keyItem}</h3>
 
-            <div className='grid gap-2'>
+            <div className='grid gap-3'>
               {filterOptions[keyItem].map((option) => (
                 <Label
                   key={option.id}
-                  className='flex items-center gap-1 font-normal'
+                  className='flex items-center gap-2 font-normal cursor-pointer'
                 >
-                  <Checkbox />
+                  <Checkbox /> {option.label}
                 </Label>
               ))}
             </div>
