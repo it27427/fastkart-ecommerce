@@ -25,7 +25,7 @@ const registerUser = async (req, res) => {
       userName,
       email,
       phone,
-      password: hashedPassword,
+      password: hashedPassword
     });
 
     await newUser.save();
@@ -62,6 +62,7 @@ const loginUser = async (req, res) => {
         id: checkUser._id,
         role: checkUser.role,
         email: checkUser.email,
+        userName: checkUser.userName
       },
       secretKey,
       { expiresIn: '120m' }
@@ -77,7 +78,8 @@ const loginUser = async (req, res) => {
           email: checkUser.email,
           role: checkUser.role,
           id: checkUser._id,
-        },
+          userName: checkUser.userName
+        }
       });
   } catch (error) {
     console.error('Error: ', error);
@@ -90,7 +92,7 @@ const logoutUser = (req, res) => {
   try {
     res.clearCookie('token').status(200).json({
       success: true,
-      message: 'Logged out successfully!',
+      message: 'Logged out successfully!'
     });
   } catch (error) {
     console.error('Error: ', error);
@@ -101,5 +103,5 @@ const logoutUser = (req, res) => {
 module.exports = {
   registerUser,
   loginUser,
-  logoutUser,
+  logoutUser
 };
