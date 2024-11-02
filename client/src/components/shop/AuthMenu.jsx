@@ -46,13 +46,11 @@ const AuthMenu = () => {
 
           <DropdownMenuItem
             onClick={() => navigate('/account')}
-            className='cursor-pointer'
+            className='cursor-pointer border-b'
           >
             <User className='mr-1 w-4 h-4' />
             <span>Profile</span>
           </DropdownMenuItem>
-
-          <DropdownMenuSeparator />
 
           <DropdownMenuItem onClick={handleLogOut} className='cursor-pointer'>
             <LogOut className='mr-1 w-4 h-4' />
