@@ -10,9 +10,9 @@ const FilterProduct = () => {
         <h2 className='text-lg font-extrabold'>Filters</h2>
       </div>
 
-      <div className='p-4 space-y-4'>
+      <div className='p-4 space-y-6 lg:max-h-[25rem] overflow-x-hidden overflow-y-scroll scrollbar-width-thin'>
         {Object.keys(filterOptions).map((keyItem) => (
-          <div className='flex flex-col gap-2' key={filterOptions[keyItem]}>
+          <div className='flex flex-col gap-3' key={keyItem}>
             <h3 className='capitalize text-base font-bold'>{keyItem}</h3>
 
             <div className='grid gap-3'>

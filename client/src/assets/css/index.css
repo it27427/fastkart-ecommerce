@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -58,6 +59,7 @@
     --chart-5: 340 75% 55%;
   }
 }
+
 @layer base {
   * {
     @apply border-border;
@@ -66,6 +68,22 @@
   ::selection {
     background: hsl(var(--themecolor));
     color: hsl(var(--textcolor));
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    width: 0.5rem;
+    border-radius: 100%;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 
   @font-face {
@@ -660,6 +678,7 @@
 
   body {
     @apply bg-background text-foreground;
+    scrollbar-width: thin;
   }
 
   button:focus {
@@ -691,10 +710,26 @@
   }
 
   input {
-    caret-color: #222222;
+    caret-color: hsl(0, 0%, 13%);
   }
 
+  input[type='checkbox'],
   input[type='radio'] {
-    accent-color: #0da487;
+    accent-color: hsl(168, 85%, 35%);
+    cursor: pointer;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-width-thin {
+    scrollbar-width: thin;
   }
 }
