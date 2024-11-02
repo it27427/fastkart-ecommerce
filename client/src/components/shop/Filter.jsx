@@ -11,7 +11,7 @@ const FilterProduct = () => {
 
       <div className='p-4 space-y-4'>
         {Object.keys(filterOptions).map((keyItem) => (
-          <div className='flex flex-col gap-2' key={keyItem}>
+          <div className='flex flex-col gap-2' key={filterOptions[keyItem]}>
             <h3 className='capitalize text-base font-bold'>{keyItem}</h3>
 
             <div className='grid gap-2'>
