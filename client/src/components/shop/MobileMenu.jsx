@@ -14,7 +14,7 @@ const MobileMenu = () => {
           </Button>
         </SheetTrigger>
 
-        <SheetContent size='left' className='w-full max-w-xs'>
+        <SheetContent side='left' className='w-full max-w-xs'>
           <MainMenu />
         </SheetContent>
       </Sheet>
