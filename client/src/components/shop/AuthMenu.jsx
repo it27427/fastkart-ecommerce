@@ -2,6 +2,8 @@ import React from 'react';
 import { ShoppingCart } from 'lucide-react';
 import {
   DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
@@ -17,8 +19,16 @@ const AuthMenu = () => {
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Avatar></Avatar>
+          <Avatar className='bg-black'>
+            <AvatarFallback className='bg-black text-white font-extrabold text-sm uppercase'>
+              IT
+            </AvatarFallback>
+          </Avatar>
         </DropdownMenuTrigger>
+
+        <DropdownMenuContent side='right' className='w-56'>
+          <DropdownMenuLabel></DropdownMenuLabel>
+        </DropdownMenuContent>
       </DropdownMenu>
     </div>
   );

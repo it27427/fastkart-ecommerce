@@ -5,7 +5,9 @@ import Logo from './Logo';
 import AuthMenu from './AuthMenu';
 
 const HeaderNav = () => {
-  const { isAuthenticated } = useSelector((state) => state.auth);
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
+
+  console.log('user: ', user);
 
   return (
     <nav className='w-full h-16 flex items-center justify-between px-6'>
