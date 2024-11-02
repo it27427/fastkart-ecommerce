@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import DesktopMenu from './DesktopMenu';
 import MobileMenu from './MobileMenu';
-import BrandLogo from './BrandLogo';
+import Logo from './Logo';
 
 const HeaderNav = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
@@ -9,7 +9,7 @@ const HeaderNav = () => {
   return (
     <nav className='flex h-16 items-center justify-between px-6 w-full'>
       {/* BRAND-LOGO */}
-      <BrandLogo />
+      <Logo />
 
       {/* MOBILE-MENU */}
       <MobileMenu />

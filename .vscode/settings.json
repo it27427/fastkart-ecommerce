@@ -22,4 +22,5 @@
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "prettier.trailingComma": "none",
 }
