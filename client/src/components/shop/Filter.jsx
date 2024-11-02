@@ -1,6 +1,7 @@
 import React from 'react';
 import { filterOptions } from '@/config';
 import { Label } from '@/components/ui/label';
+import { Checkbox } from '@/components/ui/checkbox';
 
 const FilterProduct = () => {
   return (
@@ -16,7 +17,12 @@ const FilterProduct = () => {
 
             <div className='grid gap-2'>
               {filterOptions[keyItem].map((option) => (
-                <Label key={option.id}></Label>
+                <Label
+                  key={option.id}
+                  className='flex items-center gap-1 font-normal'
+                >
+                  <Checkbox />
+                </Label>
               ))}
             </div>
           </div>
