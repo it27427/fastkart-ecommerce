@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import MainMenu from './MainMenu';
 import MobileMenu from './MobileMenu';
 import Logo from './Logo';
+import AuthMenu from './AuthMenu';
 
 const HeaderNav = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
@@ -20,7 +21,11 @@ const HeaderNav = () => {
       </div>
 
       {/* CHECKING USER-AUTHENTICATON */}
-      {isAuthenticated ? <div></div> : null}
+      {isAuthenticated ? (
+        <>
+          <AuthMenu />
+        </>
+      ) : null}
     </nav>
   );
 };
