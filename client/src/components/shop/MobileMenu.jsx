@@ -1,5 +1,12 @@
 import { Menu } from 'lucide-react';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription
+} from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import MainMenu from './MainMenu';
 
@@ -15,6 +22,11 @@ const MobileMenu = () => {
         </SheetTrigger>
 
         <SheetContent side='left' className='w-full max-w-xs'>
+          <SheetHeader className='hidden'>
+            <SheetTitle className='hidden'></SheetTitle>
+            <SheetDescription className='hidden'></SheetDescription>
+          </SheetHeader>
+
           <MainMenu />
         </SheetContent>
       </Sheet>

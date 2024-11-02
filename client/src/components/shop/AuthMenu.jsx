@@ -24,7 +24,7 @@ const AuthMenu = () => {
   };
 
   return (
-    <div className='flex flex-col gap-4 lg:flex-row items-center'>
+    <div className='flex gap-3 items-center'>
       <Button variant='outline' size='icon'>
         <ShoppingCart className='w-6 h-6' />
         <span className='sr-only'>Shopping Cart</span>
@@ -39,10 +39,10 @@ const AuthMenu = () => {
           </Avatar>
         </DropdownMenuTrigger>
 
-        <DropdownMenuContent side='right' className='w-56'>
-          <DropdownMenuLabel>Logged In as {user?.userName}</DropdownMenuLabel>
+        <DropdownMenuContent side='bottom' className='w-50'>
+          {/* <DropdownMenuLabel>Logged In as {user?.userName}</DropdownMenuLabel> */}
 
-          <DropdownMenuSeparator />
+          {/* <DropdownMenuSeparator /> */}
 
           <DropdownMenuItem
             onClick={() => navigate('/account')}

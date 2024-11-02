@@ -11,11 +11,11 @@ const HeaderNav = () => {
 
   return (
     <nav className='w-full h-16 flex items-center justify-between px-6'>
-      {/* BRAND-LOGO */}
-      <Logo />
-
       {/* MOBILE-MENU */}
       <MobileMenu />
+
+      {/* BRAND-LOGO */}
+      <Logo />
 
       {/* DESKTOP-MENU */}
       <div className='hidden lg:block'>
@@ -23,11 +23,14 @@ const HeaderNav = () => {
       </div>
 
       {/* CHECKING USER-AUTHENTICATON */}
-      {isAuthenticated ? (
+      {/* {isAuthenticated ? (
         <>
           <AuthMenu />
-        </>
-      ) : null}
+          </>
+          ) : null} */}
+
+      <AuthMenu />
+      <div className='hidden lg:block'></div>
     </nav>
   );
 };
