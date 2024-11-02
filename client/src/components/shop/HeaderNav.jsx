@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import DesktopMenu from './DesktopMenu';
+import MainMenu from './MainMenu';
 import MobileMenu from './MobileMenu';
 import Logo from './Logo';
 
@@ -16,7 +16,7 @@ const HeaderNav = () => {
 
       {/* DESKTOP-MENU */}
       <div className='hidden lg:block'>
-        <DesktopMenu />
+        <MainMenu />
       </div>
 
       {/* CHECKING USER-AUTHENTICATON */}
